@@ -1,0 +1,679 @@
+:root {
+  --modDialBackColor:#ddd;
+  --modDialTxtColor:#000
+}
+
+:root,body {
+  --font-regular-all:"DIN Next LT Pro All";
+  --font-regular-italic-all:"DIN Next LT Pro I"
+}
+
+body[data-lang=cyril] {
+  --font-regular-all:"DIN Next W10 LT Pro All";
+  --font-regular-italic-all:"DIN Next W10 LT Pro All I"
+}
+
+div {
+  -webkit-tap-highlight-color:rgba(255,255,255,0)
+}
+
+img {
+  -webkit-user-drag:none
+}
+
+* {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
+}
+
+.loginForm input {
+  user-select:auto;
+  -webkit-user-select:auto
+}
+
+body {
+  font-family:var(--font-regular-all),Helvetica,sans-serif
+}
+
+.vertAlignCont {
+  align-items:center;
+  display:flex;
+  height:100%;
+  width:100%
+}
+
+#gamesWrapper {
+  height:100vh;
+  left:0;
+  overflow:hidden;
+  position:absolute;
+  top:0;
+  width:100vw;
+  z-index:0
+}
+
+input:-webkit-autofill,input:-webkit-autofill:active,input:-webkit-autofill:focus,input:-webkit-autofill:hover {
+  transition:background-color 90000s ease-in-out 0s
+}
+
+.dsvgBg {
+  background:linear-gradient(0deg,#031d48,#023169 18%,#023169 30%,#03163d 70%);
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+  width:100vw
+}
+
+#loaderText {
+  align-items:center;
+  display:flex;
+  font-size:1.8vw;
+  height:84%;
+  justify-content:center;
+  left:0;
+  letter-spacing:.55vh;
+  position:absolute;
+  top:0;
+  white-space:nowrap;
+  width:100%
+}
+
+.startBottomImg {
+  background-image:url();
+  background-size:100vw auto;
+  bottom:6vh;
+  height:auto;
+  position:absolute;
+  width:100vw
+}
+
+.gamesImgContainer {
+  align-items:flex-end;
+  bottom:6.9vh;
+  display:flex;
+  flex-direction:column;
+  position:absolute;
+  width:100vw
+}
+
+.sartGamesImg {
+  width:100vw
+}
+
+.startDsLogo {
+  padding:1vw 1.3vw 1vw 1vw;
+  width:9.9vw
+}
+
+#loader-wrapper {
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000
+}
+
+#loader {
+  -webkit-animation:spin 2s linear infinite;
+  animation:spin 2s linear infinite;
+  border:.5vw solid transparent;
+  border-radius:50%;
+  border-top-color:#fff;
+  display:block;
+  height:32vw;
+  left:50%;
+  margin:-16vw 0 0 -16vw;
+  position:relative;
+  top:40%;
+  width:32vw
+}
+
+#loader:before {
+  -webkit-animation:spin 3s linear infinite;
+  animation:spin 3s linear infinite;
+  border:.5vw solid transparent;
+  border-radius:50%;
+  border-top-color:hsla(0,0%,100%,.7);
+  bottom:.25vw;
+  content:"";
+  left:.25vw;
+  position:absolute;
+  right:.25vw;
+  top:.25vw
+}
+
+#loader:after {
+  -webkit-animation:spin 1.5s linear infinite;
+  animation:spin 1.5s linear infinite;
+  border:.5vw solid transparent;
+  border-radius:50%;
+  border-top-color:hsla(0,0%,100%,.4);
+  bottom:1.05vw;
+  content:"";
+  left:1.05vw;
+  position:absolute;
+  right:1.05vw;
+  top:1.05vw
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    transform:rotate(0deg)
+  }
+  to {
+    -webkit-transform:rotate(1turn);
+    -ms-transform:rotate(1turn);
+    transform:rotate(1turn)
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform:rotate(0deg);
+    -ms-transform:rotate(0deg);
+    transform:rotate(0deg)
+  }
+  to {
+    -webkit-transform:rotate(1turn);
+    -ms-transform:rotate(1turn);
+    transform:rotate(1turn)
+  }
+}
+:focus {
+  outline:none
+}
+body {
+  background-color:#03163d;
+  color:#fff;
+  height:100%;
+  margin:0;
+  padding:0;
+  width:100%
+}
+.loginBg,body{
+  overflow:hidden
+}
+.loginBg {
+  background:linear-gradient(0deg,#031d48,#023169 18%,#023169 30%,#03163d 70%);
+  display:none;
+  height:100vh;
+  position:fixed;
+  width:100vw;
+  z-index:2
+}
+.logInVersion {
+  bottom:2.05vh;
+  color:#fff;
+  font-family:var(--font-regular-italic-all),Helvetica,sans-serif;
+  font-size:2vh;
+  font-style:italic;
+  left:.5vw;
+  opacity:.3;
+  position:absolute;
+}
+#downLoadCont {
+  background-color:hsla(0,0%,100%,.3);
+  bottom:4.75vh;
+  height:2.1vh;
+  left:calc(16.48vw - .3vh);
+  position:absolute;
+  transform:skew(-31deg,0deg) translateY(2.1vh);
+  visibility:hidden;
+  width:49.71vw
+}
+#downLoadPercente {
+  background-color:#fff;
+  height:100%;
+  transition-duration:.8s;
+  transition-property:none;
+  width:0;
+}
+.logInVersionDownload {
+  bottom:2.05vh;
+  color:#fff;
+  display:none;
+  font-family:var(--font-regular-italic-all),Helvetica,sans-serif;
+  font-size:2vh;
+  left:67.8vw;
+  letter-spacing:.03vw;
+  opacity:1;
+  position:absolute;
+}
+@media (max-aspect-ratio:1249/931) {
+  .logInVersion,.logInVersionDownload {
+    font-size:1.6vw;
+  }
+}
+.dsLogo {
+  display:none;
+  left:3vw;
+  position:absolute;
+  top:3vw;
+  transform:translateX(0);
+  width:22vw;
+}
+form.loginForm {
+  position:absolute;
+  right:1.8vw;
+  top:12vh;
+  z-index:10;
+}
+.loginCont {
+  align-items:flex-start;
+  display:flex;
+  justify-content:flex-start;
+}
+.loginInput {
+  margin-bottom:1.4vw;
+  width:29vw;
+}
+.loginInput:nth-child(2) {
+  transform:translateX(-1.5vw);
+}
+.loginInput:nth-child(3) {
+  transform:translateX(-2.6vw);
+}
+#password_input {
+  -webkit-text-security:disc!important;
+}
+.loginInputField {
+  display:inline-block;
+  height:5.1vw;
+  position:relative;
+}
+.loginInputField img {
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:-1;
+}
+.loginInputField .inpBack {
+  background:-webkit-linear-gradient(top,#b4bac5,#c8cbd4 5%,#d2d5dc 9%,#d9dce3 14%,#dbdee3 18%,#d8dbe1 39%,#cccfd8 76%,#cdd0d8);
+  background:linear-gradient(180deg,#b4bac5 0,#c8cbd4 5%,#d2d5dc 9%,#d9dce3 14%,#dbdee3 18%,#d8dbe1 39%,#cccfd8 76%,#cdd0d8);
+  background-image:-moz-linear-gradient(top,#b4bac5 0,#d9dce3 14%,#dbdee3 18%,#cdd0d8 100%);
+  border-bottom-right-radius:1vh;
+  border-top-left-radius:1vh;
+  box-shadow:inset 7px 0 15px -7px #8c929d;
+  height:4.32vw;
+  left:0;
+  position:absolute;
+  top:0;
+  transform:skewX(-10deg);
+  width:21.3vw;
+  z-index:-1;
+}
+.loginInputField .loginButtonHov {
+  background-position:0 0;
+  background-repeat:no-repeat;
+  background-size:22.3vw auto;
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+.loginInputField .loginButtonHov:hover {
+  background-image:url(games/common/assets/login/butt_login_hov46d34fe42130ad8ff908.svg);
+}
+html.can-touch .loginInputField .loginButtonHov:hover {
+  background-image:none;
+}
+.loginInputField .loginButtonHov:active,html.can-touch .loginInputField .loginButtonHov:active {
+  background-image:url(games/common/assets/login/butt_login_act23932c25e077827ba5cb.svg);
+}
+.loginInputField input {
+  background:transparent;
+  border:none;
+  font-family:var(--font-regular-italic-all),Helvetica,sans-serif;
+  font-size:2.5vw;
+  height:3vw;
+  margin-top:.9vw;
+  padding-left:1.6vw;
+  user-select:none;
+  width:19.3vw;
+}
+.clearButton {
+  display:inline-block;
+  margin-left:1.3vw;
+  position:relative;
+  top:-.3vw;
+  width:4vw;
+}
+.clearButton,.loginButton {
+  cursor:pointer
+}
+.loginButtonText {
+  color:#fff;
+  display:block;
+  font-family:var(--font-regular-italic-all),Helvetica,sans-serif;
+  font-size:2.3vw;
+  letter-spacing:.25vw;
+  padding-top:1.2vw;
+  text-align:center;
+}
+.loginInputField.loginButton {
+  width:22.3vw;
+}
+.loginError {
+  box-sizing:border-box;
+  height:auto;
+  max-height:10vw;
+  min-height:5vw;
+  padding-left:1vw;
+  padding-right:1vw;
+  transform:translateX(-9.8vw);
+  transition:all .3s ease;
+}
+.logInErrBack {
+  background-color:#a8120d;
+  border-bottom-right-radius:1vh;
+  border-top-left-radius:1vh;
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  transform:skewX(-10deg);
+  width:100%;
+  z-index:-1;
+}
+.loginError span {
+  font-family:var(--font-regular-italic-all),Helvetica,sans-serif;
+  font-size:1.7vw;
+}
+.numPadCont {
+  margin-left:-3.2vw;
+}
+#numPadIcon {
+  height:22.36vw;
+  width:23.4vw;
+}
+#loginLogut, .logInPadEl {
+  cursor:pointer;
+}
+#loginLogut {
+  background-image:url(games/common/assets/login/exitd8e4dbba7db093a17253.svg);
+  background-position:100% 0;
+  background-repeat:no-repeat;
+  background-size:2.5vw 2.5vw;
+  height:3.5vw;
+  margin-left:5vw;
+  width:5.6vw;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  to {
+    opacity:0;
+  }
+}
+.modalFadeIn {
+  animation:fadeIn .3s ease-in;
+}
+.modalFadeOut {
+  animation:fadeOut .3s ease-in;
+}
+#modalDialogInfo.highZIndex {
+  z-index:3001;
+}
+.modal {
+  animation-fill-mode:forwards;
+  height:100vh;
+  z-index:1000;
+}
+.bgModal,.modal {
+  left:0;
+  position:absolute;
+  top:0;
+  width:100vw;
+}
+.bgModal {
+  background:rgba(0,0,0,.774);
+  height:100%;
+}
+.modal.notFull {
+  bottom:0;
+  height:auto;
+  top:9.51vw;
+}
+.modalDialog {
+  color:#fff;
+  display:inline-block;
+  font-family:var(--font-regular-all),Helvetica,sans-serif;
+  left:50%;
+  position:absolute;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:50vw;
+  z-index:4;
+}
+.modBackColor {
+  background-color:#ddd;
+  border-bottom-right-radius:1vw;
+  border-top-left-radius:1vw;
+  height:100%;
+  overflow:hidden;
+  transform:skew(-10deg);
+  width:100%;
+}
+.transparent .modBackColor {
+  background-color:transparent;
+  color:#fff
+}
+.modalHeader {
+  border-top-left-radius:4vw;
+  height:5.5vw;
+  left:-.6vw;
+  position:relative;
+  top:-.1vw;
+  transform:skewX(10deg);
+  width:51.16vw
+}
+.transparent .modalHeader {
+  background-color:transparent;
+  color:#fff
+}
+.modalHeader img {
+  left:0;
+  position:absolute;
+  top:0;
+  width:100.1%;
+  z-index:1;
+}
+.modalHeader span {
+  line-height:5.5vw;
+  padding-left:2.3vw;
+  transform:skewX(-10deg);
+  z-index:2;
+}
+.modalHeader span,.modalText {
+  display:block;
+  font-size:2vw;
+  position:relative;
+}
+.modalText {
+  box-sizing:border-box;
+  color:var(--modDialTxtColor);
+  max-height:70vh;
+  overflow:hidden;
+  padding:2vw;
+  text-align:center;
+  z-index:1;
+}
+.transparent .modalText {
+  color:#fff;
+}
+.modalButtonbar {
+  height:5.5vw;
+  left:-1%;
+  position:relative;
+  transform:skewX(10deg);
+  width:100%;
+  width:102.2%;
+}
+.modalButton {
+  cursor:pointer;
+  display:inline-block;
+  height:5.5vw;
+  position:absolute;
+  top:0;
+  width:12.5vw;
+}
+.modalButton span {
+  display:block;
+  font-size:2vw;
+  font-weight:700;
+  line-height:5.5vw;
+  position:relative;
+  text-align:center;
+  width:100%;
+  z-index:2;
+}
+.modalButton img {
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.modalButtonNeg {
+  left:0;
+}
+.modalButtonPos {
+  right:0;
+}
+.modalButtonbar .modalButton .spinner {
+  height:4vw;
+  top:1.03vw;
+  width:4vw;
+}
+@media (max-aspect-ratio:11/16) {
+  #modalDialogErr .modalDialog {
+    width:80vw;
+  }
+  .modalDialog .modalText {
+    font-size:5.5vw;
+  }
+  .modalDialog .modalHeader span {
+    font-size:5.5vw;
+    line-height:10vw;
+  }
+  .modalDialog .modalHeader {
+    height:8.8vw;
+    left:-1.1vw;
+    top:-.16vw;
+    width:81.86vw;
+  }
+}
+@font-face {
+  font-family:DIN Next LT Pro All;
+  font-style:italic;
+  font-weight:700;
+  src:local("../assets/fonts/DIN Next LT Pro Bold Italic"),
+  local("../assets/fonts/DIN-Next-LT-Pro-Bold-Italic"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-BoldItalic.beb507cf9ef398fb9eb0..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-BoldItalic.182120f64025709a86ed..woff) format("woff");
+}
+@font-face {
+  font-family:DIN Next LT Pro All;
+  font-weight:300;
+  src:local("../assets/fonts/DIN Next LT Pro Light"),
+  local("../assets/fonts/DIN-Next-LT-Pro-Light"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Light.f4d1d1c7592aa0c94bdc..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Light.9761c34b4bb21a7a6eb4..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Light.4e5b66b9939024bf514d..ttf) format("truetype");
+}
+@font-face {
+  font-family:DIN Next LT Pro All;
+  font-weight:400;
+  src:local("../assets/fonts/DIN Next LT Pro Regular"),
+  local("../assets/fonts/DIN-Next-LT-Pro-Regular"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Regular.59b2129da7ffb5f1b1a0..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Regular.003e4287f0b24b5e7ca9..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Regular.3b2d0db23ef9882c5db2..ttf) format("truetype");
+}
+@font-face {
+  font-family:DIN Next LT Pro All;
+  font-weight:700;
+  src:local("../assets/fonts/DINNextLTPro-Bold"),
+  local("../assets/fonts/DINNextLTPro-Bold"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Bold.899038b138d6dee70b2a..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Bold.6f6cb0de7fe4c6f5e7bf..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Bold.de51b8ab31646835bbd8..ttf) format("truetype");
+}
+@font-face {
+  font-family:DIN Next LT Pro I;
+  font-style:italic;
+  font-weight:400;
+  src:local("../assets/fonts/DIN Next LT Pro Italic"),
+  local("../assets/fonts/DIN-Next-LT-Pro-Regular"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Italic.bb1119f0b273fffb5473..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Italic.279227cb33bcc7e13516..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_standard/DINNextLTPro-Italic.0551ae3dd5025b98e84a..ttf) format("truetype");
+}
+@font-face {
+  ascent-override:86%;
+  descent-override:35%;
+  font-family:DIN Next W10 LT Pro All;
+  font-style:italic;
+  font-weight:700;
+  src:local("../assets/fonts/fonts_cyril/DIN Next CYR Bold Italic"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold%20Italic.3d16c834dfc732298e62..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold%20Italic.587900478db04571fd33..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold%20Italic.e36831548e3d3e26b6bd..ttf) format("truetype");
+}
+@font-face {
+  ascent-override:86%;
+  descent-override:35%;
+  font-family:DIN Next W10 LT Pro All;
+  font-weight:300;
+  src:local("../assets/fonts/fonts_cyril/DIN Next CYR Light"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Light.9a9952f428e3e3817734..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Light.8b7283193f7781689d30..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Light.dc7f4669224f40710634..ttf) format("truetype");
+}
+@font-face {
+  ascent-override:86%;
+  descent-override:35%;
+  font-family:DIN Next W10 LT Pro All;
+  font-weight:400;
+  src:local("../assets/fonts/fonts_cyril/DIN Next CYR"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR.36930c7b0e963a8bf127..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR.d2736d2a4aad6144cd15..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR.49a0f659dd5a0c718952..ttf) format("truetype");
+}
+@font-face {
+  ascent-override:86%;
+  descent-override:35%;
+  font-family:DIN Next W10 LT Pro All;
+  font-weight:700;
+  src:local("../assets/fonts/fonts_cyril/DIN Next CYR Bold"),
+  local("../assets/fonts/fonts_cyril/DIN Next CYR Bold"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold.178abac64d7ec90d1a3a..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold.7e71b349f5bde93143b7..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Bold.b361ed02df82f4db2973..ttf) format("truetype");
+}
+@font-face {
+  ascent-override:86%;
+  descent-override:35%;
+  font-family:DIN Next W10 LT Pro All I;
+  font-style:italic;
+  font-weight:400;
+  src:local("../assets/fonts/fonts_cyril/DIN Next CYR Italic"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Italic.3e8131ecd506b2f15498..woff2) format("woff2"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Italic.ae1520bae885b4d76478..woff) format("woff"),
+  url(games/common/assets/fonts/fonts_cyril/DIN%20Next%20CYR%20Italic.c02467e8f131911eae8d..ttf) format("truetype");
+}
+/*  !*font-style: italic;*!*/

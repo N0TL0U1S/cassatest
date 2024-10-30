@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en" class="json postmessage video video-webm video-vp9 websockets cssanimations backdropfilter cssgrid flexbox">
+<head>
+    <meta charset="utf-8">
+    <title>POS</title>
+    
+    <!-- Meta Tags -->
+    <meta name="theme-color" content="#03163d">
+    <meta name="msapplication-TileColor" content="#03163d">
+    <meta name="msapplication-navbutton-color" content="#03163d">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#03163d">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Stylesheet -->
+    <link href="/dist/gamepool.417e83b1676a8662af2f.css" rel="stylesheet">
+    <link href="/dist/posgame.03109b9841f40f810c79.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body cz-shortcut-listen="true" class="perf_high" data-lang="estándar">
+    
+    <!-- Loader Section -->
+    <div class="dsvgBg" id="startUpBack" style="display: none;">
+        <div id="loader-wrapper">
+            <div id="loader"></div>
+            <div id="loaderText"></div>
+        </div>
+        <div class="startBottomImg"></div>
+
+        <div class="gamesImgContainer">
+            <img class="startDsLogo" src="https://60769061a7b8d212da12e0475bec30a9.vgpos.net/gamepool/dist/games/common/assets/loadingscreen/ds_logo_login4fbc4a0b0b6b7de4a921.png">
+            <img class="sartGamesImg" src="https://60769061a7b8d212da12e0475bec30a9.vgpos.net/gamepool/dist/games/common/assets/loadingscreen/games_img6598856eec74261232ab.png">
+        </div>
+
+        <div class="logInVersion">2.49.02</div>
+
+        <div id="downLoadCont" style="visibility: visible;">
+            <div id="downLoadPercente" style="transition-duration: 4000ms; width: 0%;"></div>
+        </div>
+
+        <div class="logInVersionDownload"></div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="loginBg" id="login" style="display: block;">
+        <div class="login">
+            <form class="loginForm" autocomplete="new-password">
+                <div class="loginCont">
+                    <div class="loginElem">
+                        <div class="loginInput">
+                            <div class="loginInputField"> <input type="text" name="user_input"
+                                    placeholder="ID DE OPERADOR" id="user_input" autofocus=""
+                                    autocomplete="new-password" inputmode="none" maxlength="15"
+                                    data-listener-added_664917b9="true">
+                                <div class="inpBack"></div>
+                            </div> <img
+                                src="/dist/games/common/assets/login/butt_rot_x6e2e9e04f807592414c8.svg"
+                                id="userInputClear" class="clearButton" alt="clear button">
+                        </div>
+                    </div>
+                    <div class="loginElem">
+                        <div class="loginInput">
+                            <div class="loginInputField"> <input type="password" name="password"
+                                    placeholder="CONTRASEÑA" id="password_input" autocomplete="new-password"
+                                    inputmode="none" aria-autocomplete="list" data-listener-added_664917b9="true">
+                                <div class="inpBack"></div>
+                            </div> <img
+                                src="/dist/games/common/assets/login/butt_rot_x6e2e9e04f807592414c8.svg"
+                                id="passwordInputClear" class="clearButton" alt="clear button">
+                        </div>
+                        <div class="loginInput">
+                            <div class="loginInputField loginButton" id="loginButton"> <span
+                                    class="loginButtonText">ACCESO</span> <img
+                                    src="/dist/games/common/assets/login/butt_logindba0cc4e6bef485cefc7.svg"
+                                    alt="login button">
+                                <div class="loginButtonHov"></div>
+                            </div>
+                        </div>
+                        <div class="loginError" id="loginError" style="display:none">
+                            <div class="vertAlignCont"> <span id="errorMessage" class="error_message">ID de Operador o Contraseña inválidos</span> </div>
+                            <div class="logInErrBack"></div>
+                        </div>
+                    </div>
+                    <div class="loginElem numPadCont">
+                        <div class="numPadIcon"> <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 450 430">
+                                <style>
+                                    .st0 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                        fill: url(#SVGID_1_)
+                                    }
+
+                                    .st1 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                        fill: #e5e5e5
+                                    }
+
+                                    .st2 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                        fill: #fff
+                                    }
+
+                                    .st3 {
+                                        fill-rule: evenodd;
+                                        clip-rule: evenodd;
+                                        fill: #ff5331
+                                    }
+
+                                    .st4 {
+                                        fill: #05132b
+                                    }
+                                </style>
+                                <g>
+                                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="66.3029" y1="430"
+                                        x2="66.3029" y2="328.7247">
+                                        <stop offset="0" style="stop-color:#920e0a"></stop>
+                                        <stop offset="1" style="stop-color:#bd1710"></stop>
+                                    </linearGradient>
+                                    <path id="logInPadDel" class="st0 logInPadEl" d="M132.606,328.725h-99.43c-8.656,0-16.071,6.206-17.605,14.735L0,430h99.43c8.656,0,16.071-6.205,17.605-14.735
+              L132.606,328.725z"></path>
+                                    <path id="logInPadNu1" class="st1 logInPadEl" d="M192.057,0h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L192.057,0z"></path>
+                                    <path id="logInPadNu2" class="st1 logInPadEl" d="M316.469,0h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L316.469,0z"></path>
+                                    <path id="logInPadNu3" class="st1 logInPadEl" d="M440.88,0h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43c8.656,0,16.071-6.205,17.605-14.735
+              L440.88,0z"></path>
+                                    <path id="logInPadNu4" class="st1 logInPadEl" d="M172.336,109.575h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L172.336,109.575z"></path>
+                                    <path id="logInPadNu5" class="st1 logInPadEl" d="M296.747,109.575h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L296.747,109.575z"></path>
+                                    <path id="logInPadNu6" class="st1 logInPadEl" d="M421.158,109.575h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L421.158,109.575z"></path>
+                                    <path id="logInPadNu7" class="st1 logInPadEl" d="M152.535,219.15h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L152.535,219.15z"></path>
+                                    <path id="logInPadNu8" class="st1 logInPadEl" d="M276.947,219.15h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L276.947,219.15z"></path>
+                                    <path id="logInPadNu9" class="st1 logInPadEl" d="M401.358,219.15h-99.43c-8.656,0-16.071,6.206-17.605,14.735l-15.57,86.54h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L401.358,219.15z"></path>
+                                    <path id="logInPadNu0" class="st1 logInPadEl" d="M257.017,328.725h-99.43c-8.656,0-16.071,6.206-17.605,14.735L124.411,430h99.43
+              c8.656,0,16.071-6.205,17.605-14.735L257.017,328.725z"></path>
+                                    <path id="logInPadDelArr" class="st2 logInPadEl" d="M34.584,379.107l23.296,19.067l2.473-13.746h27.93c6.89,0,12.954-4.083,15.697-10.132H62.176l2.473-13.746
+              L34.584,379.107z"></path>
+                                    <path class="st3" d="M16.223,344.112c1.535-8.529,8.949-14.735,17.605-14.735h98.661l0.117-0.653h-99.43
+              c-8.656,0-16.071,6.206-17.605,14.735L0,430h0.77L16.223,344.112z"></path>
+                                    <g>
+                                        <g>
+                                            <path id="logInPadNu1Nu" class="st4 logInPadEl"
+                                                d="M125.503,44.883h-0.092l-5.482,3.472c-0.274,0.183-0.548,0.046-0.456-0.32l0.913-5.344
+                  c0.046-0.274,0.183-0.502,0.411-0.64l5.801-3.792c0.32-0.183,0.548-0.274,0.822-0.274h4.933c0.274,0,0.457,0.183,0.411,0.457
+                  l-5.344,30.148c-0.046,0.274-0.229,0.457-0.502,0.457h-5.208c-0.274,0-0.456-0.183-0.411-0.457L125.503,44.883z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu2Nu" class="st4 logInPadEl" d="M239.408,64.571c0.092-0.274,0.183-0.502,0.411-0.731l12.744-13.064c1.827-1.919,2.695-3.426,2.695-5.299
+                  c0-1.69-1.005-2.832-2.786-2.832c-2.056,0-3.609,1.371-4.294,3.792c-0.091,0.274-0.274,0.411-0.548,0.365l-4.659-0.822
+                  c-0.228-0.046-0.32-0.228-0.228-0.502c1.05-4.248,4.613-7.994,10.597-7.994c5.025,0,8.131,3.014,8.131,7.126
+                  c0,3.517-1.553,6.258-4.477,9.227l-9.73,9.867v0.092h10.461c0.274,0,0.457,0.183,0.411,0.456l-0.776,4.34
+                  c-0.046,0.274-0.229,0.457-0.502,0.457h-17.769c-0.274,0-0.457-0.183-0.411-0.457L239.408,64.571z">
+                                            </path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu3Nu" class="st4 logInPadEl" d="M364.094,61.876l4.842-0.914c0.274-0.046,0.456,0.092,0.456,0.365c0.229,1.69,1.234,3.061,3.427,3.061
+                  c2.649,0,4.568-2.375,4.568-5.298c0-2.193-1.279-3.472-3.518-3.472h-1.233c-0.274,0-0.411-0.183-0.365-0.457l0.731-4.202
+                  c0.046-0.274,0.274-0.457,0.548-0.457h1.142c2.695,0,4.522-2.238,4.522-4.979c0-1.736-1.005-2.878-2.786-2.878
+                  c-1.964,0-3.243,1.234-4.019,3.015c-0.092,0.274-0.32,0.365-0.548,0.32l-4.659-0.914c-0.228-0.046-0.32-0.228-0.228-0.502
+                  c1.415-4.02,5.298-7.08,10.597-7.08c5.116,0,7.903,2.786,7.903,6.76c0,3.426-1.644,6.533-4.705,8.222v0.091
+                  c1.416,0.777,2.832,2.65,2.832,5.619c0,6.761-4.888,11.374-11.42,11.374c-5.162,0-8.542-2.695-8.588-7.08
+                  C363.591,62.196,363.775,61.967,364.094,61.876z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu4Nu" class="st4 logInPadEl" d="M94.689,171.032l0.777-4.339c0.046-0.229,0.137-0.411,0.32-0.686l12.379-20.51
+                  c0.183-0.228,0.366-0.365,0.731-0.365h5.436c0.274,0,0.411,0.183,0.229,0.457l-12.288,20.555v0.092h5.299
+                  c0.183,0,0.32-0.092,0.365-0.274l1.234-6.806c0.046-0.274,0.228-0.457,0.502-0.457h5.07c0.274,0,0.411,0.183,0.365,0.457
+                  l-1.187,6.806c-0.046,0.183,0,0.274,0.183,0.274h1.919c0.274,0,0.457,0.183,0.411,0.457l-0.776,4.339
+                  c-0.046,0.274-0.229,0.457-0.503,0.457h-1.964c-0.183,0-0.274,0.092-0.32,0.274l-0.685,3.974
+                  c-0.046,0.274-0.228,0.457-0.502,0.457h-5.07c-0.274,0-0.457-0.183-0.411-0.457l0.686-3.974c0.046-0.183-0.046-0.274-0.229-0.274
+                  H95.054C94.78,171.489,94.643,171.306,94.689,171.032z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu5Nu" class="st4 logInPadEl"
+                                                d="M221.065,169.296l4.888-0.868c0.228-0.046,0.411,0.092,0.456,0.365c0.183,1.553,1.051,2.741,3.015,2.741
+                  c1.507,0,2.878-0.776,3.563-2.284c0.685-1.37,1.187-4.203,1.187-5.573c0-1.964-0.959-3.015-2.877-3.015
+                  c-1.599,0-2.832,0.959-3.38,1.964c-0.137,0.32-0.32,0.457-0.64,0.457h-4.659c-0.274,0-0.365-0.137-0.32-0.457l3.015-17.038
+                  c0.046-0.274,0.183-0.457,0.457-0.457h16.672c0.274,0,0.457,0.183,0.411,0.457l-0.777,4.339
+                  c-0.046,0.274-0.274,0.457-0.548,0.457h-11.466c-0.183,0-0.274,0.092-0.32,0.274l-1.142,6.486h0.092
+                  c0.913-0.822,2.604-1.599,4.888-1.599c4.248,0,6.715,2.147,6.715,6.669c0,2.376-0.685,6.624-1.873,9.045
+                  c-1.827,3.746-5.116,5.436-9.684,5.436c-5.116,0-8.085-2.832-8.04-6.897C220.699,169.57,220.836,169.342,221.065,169.296z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu6Nu" class="st4 logInPadEl" d="M348.171,159.247l9.684-13.795c0.183-0.274,0.274-0.32,0.593-0.32h5.528c0.319,0,0.411,0.183,0.228,0.457
+                  l-8.405,12.15l0.092,0.046c0.319-0.183,1.142-0.32,1.964-0.32c4.111,0,7.08,2.741,7.08,7.263c0,6.761-4.841,11.968-11.876,11.968
+                  c-5.07,0-8.496-2.923-8.496-7.719C344.563,165.779,345.658,162.855,348.171,159.247z M353.926,171.534
+                  c2.786,0,4.933-2.512,4.933-5.573c0-2.101-1.279-3.471-3.335-3.471c-2.831,0-4.933,2.512-4.933,5.573
+                  C350.592,170.119,351.826,171.534,353.926,171.534z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu7Nu" class="st4 logInPadEl" d="M92.287,257.713v-0.091h-6.349c-0.183,0-0.274,0.091-0.32,0.274l-0.64,3.289
+                  c-0.046,0.274-0.228,0.456-0.502,0.456h-4.888c-0.274,0-0.365-0.182-0.32-0.456l1.507-8.45c0.046-0.274,0.229-0.457,0.502-0.457
+                  h17.907c0.274,0,0.411,0.183,0.365,0.457l-0.777,4.431c-0.046,0.228-0.137,0.456-0.274,0.777l-13.886,24.986
+                  c-0.183,0.319-0.365,0.411-0.731,0.411h-5.344c-0.274,0-0.411-0.183-0.274-0.502L92.287,257.713z">
+                                            </path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu8Nu" class="st4 logInPadEl"
+                                                d="M205.781,267.123l0.046-0.091c-1.005-0.868-1.919-2.558-1.919-4.705c0-5.207,4.02-10.552,11.009-10.552
+                  c5.299,0,8.131,3.244,8.131,7.309c0,3.152-1.553,6.075-4.203,7.948l-0.046,0.091c1.37,1.097,2.558,2.97,2.558,5.528
+                  c0,6.121-4.934,11.191-11.831,11.191c-5.253,0-8.77-2.923-8.77-7.583C200.756,272.696,202.538,269.134,205.781,267.123z
+                   M210.303,278.68c2.786,0,4.979-2.421,4.979-5.48c0-2.102-1.279-3.518-3.426-3.518c-2.832,0-5.025,2.421-5.025,5.482
+                  C206.831,277.264,208.156,278.68,210.303,278.68z M217.018,259.906c0-1.69-1.005-2.97-2.878-2.97
+                  c-2.375,0-4.294,2.102-4.294,4.66c0,1.69,1.05,2.968,2.878,2.968C215.099,264.565,217.018,262.464,217.018,259.906z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu9Nu" class="st4 logInPadEl" d="M336.359,270.732l-0.045-0.046c-0.32,0.183-1.051,0.32-1.919,0.32c-4.203,0-7.081-3.107-7.081-7.537
+                  c0-6.303,4.614-11.694,11.877-11.694c5.07,0,8.542,2.923,8.542,7.719c0,3.153-1.279,6.212-3.7,9.684l-9.638,13.841
+                  c-0.137,0.228-0.274,0.32-0.595,0.32h-5.527c-0.32,0-0.411-0.228-0.228-0.457L336.359,270.732z M341.703,260.499
+                  c0-2.147-1.233-3.563-3.335-3.563c-2.923,0-4.933,2.604-4.933,5.528c0,2.101,1.233,3.517,3.335,3.517
+                  C339.694,265.981,341.703,263.378,341.703,260.499z"></path>
+                                        </g>
+                                        <g>
+                                            <path id="logInPadNu0Nu" class="st4 logInPadEl" d="M184.638,368.585c2.01-4.111,5.436-6.075,9.958-6.075c4.842,0,8.131,2.649,8.131,7.491
+                  c0,3.061-2.01,15.485-3.471,18.499c-2.01,4.111-5.482,6.075-9.958,6.075c-4.842,0-8.131-2.649-8.131-7.491
+                  C181.166,384.024,183.176,371.599,184.638,368.585z M190.028,389.414c1.553,0,2.741-0.823,3.38-2.193
+                  c0.959-1.873,3.152-14.343,3.152-16.718c0-1.644-0.914-2.832-2.695-2.832c-1.553,0-2.741,0.822-3.38,2.193
+                  c-0.959,1.873-3.152,14.343-3.152,16.718C187.333,388.226,188.246,389.414,190.028,389.414z"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg> </div>
+                    </div>
+                    <div class="loginElem">
+                        <div id="loginLogut" style="visibility: hidden;">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="gamesImgContainer">
+            <img class="startDsLogo"
+                src="/dist/games/common/assets/loadingscreen/ds_logo_login4fbc4a0b0b6b7de4a921.png">
+            <img class="sartGamesImg"
+                src="/dist/games/common/assets/loadingscreen/games_img6598856eec74261232ab.png">
+        </div>
+        <div class="logInVersion">2.49.02</div>
+    </div>
+    <div id="modalDialogErr" class="modal modalFadeOut" style="display: none;">
+        <div class="bgModal" id="errbgModal"> </div>
+        <div class="modalDialog">
+            <div class="modBackColor">
+                <div id="errmodalHeaderCont" class="modalHeader">
+                    <span id="errmodalHeader">Error de impresión</span>
+                    <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgODAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA4MDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNBNTEyMEQ7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04MDAsMEgyOC44M2MtNy41MiwwLTEzLjk3LDUuMzktMTUuMywxMi44TDAsODhoNzcxLjE3YzcuNTIsMCwxMy45Ny01LjM5LDE1LjMtMTIuOEw4MDAsMHoiLz4NCjwvc3ZnPg0K"
+                        alt="">
+                </div>
+                <div class="modalText" id="errmodalText" style="text-align: left;">La impresora no está disponible. Para
+                    imprimir balances o pagos antiguos, inicie sesión nuevamente.<br><br>Es posible que el controlador
+                    de impresora aún no esté instalado. Si es así, descargue el controlador de la impresora desde el
+                    siguiente enlace: <a href="https://update.racingdogs.eu/files/WebPosPrinter1042.zip"
+                        target="_blank">WebPosPrinter Version 1.1.1042</a> e inícielo.</div>
+                <div class="modalButtonbar" id="errbuttonbar">
+                    <div class="modalButton modalButtonNeg" id="errmodalNegButton" style="display: none;">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgMjAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNBNTEyMEQ7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMDAsMEgyOC44NGMtNy41MywwLTEzLjk3LDUuMzktMTUuMzEsMTIuOEwwLDg4aDE3MS4xNmM3LjUzLDAsMTMuOTctNS4zOSwxNS4zMS0xMi44TDIwMCwweiIvPg0KPC9zdmc+DQo="
+                            alt="decline button background">
+                        <span id="errmodalNegButtonText"></span>
+                    </div>
+                    <div class="modalButton modalButtonPos" id="errmodalPosButton" style="color: black;">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgMjAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRUVEMDE7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMDAsMEgyOC44NGMtNy41MywwLTEzLjk3LDUuMzktMTUuMzEsMTIuOEwwLDg4aDE3MS4xNmM3LjUzLDAsMTMuOTctNS4zOSwxNS4zMS0xMi44TDIwMCwweiIvPg0KPC9zdmc+DQo="
+                            alt="accept button background">
+                        <span id="errmodalPosButtonText">OK</span>
+                        <div class="spinner" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalDialogPriVers" class="modal" style="display:none"></div>
+    <div id="gamesWrapper">
+        <div id="modalDialogInfo" class="modal" style="display:none"></div>
+        <svg class="svg" style="position:absolute;z-index:-200">
+            <clipPath id="posFlagClipt" clipPathUnits="objectBoundingBox">
+                <path
+                    d="M1,0 H0.218 c-0.057,0,-0.106,0.061,-0.116,0.146 L0,1 h0.782 c0.057,0,0.106,-0.061,0.116,-0.146 L1,0">
+                </path>
+            </clipPath>
+        </svg>
+        <svg class="svg" style="position:absolute;z-index:-200">
+            <clipPath id="posFlagCliptKart" clipPathUnits="objectBoundingBox">
+                <path d="M1,0 H0.122 L0,1 h0.88 L1,0"></path>
+            </clipPath>
+        </svg>
+        <svg class="svg" style="position:absolute;z-index:-200">
+            <clipPath id="posFlagCliptRtt" clipPathUnits="objectBoundingBox">
+                <path d="M1,0 H0.116 C0.059,0,0.01,0.061,0,0.146 L0,1 h0.884 c0.057,0,0.106,-0.061,0.116,-0.146 L1,0">
+                </path>
+            </clipPath>
+        </svg>
+        <div id="externTicketScreen" class="extTiScreen">
+            <div id="extTiHeaderTxt" class="tok_selfServHead">PRE-ORDER-SYSTEM</div>
+            <div id="closExtTicketViewBut" class="extTiShowBut extTiCloseBut flexCenter">
+                <div class="tok_extTiButTxt extTiHeasBigTxt">ORDENAR TICKET</div>
+                <div class="extTikNuPeTxt"><span class="extTiNumbPendTi"></span>
+                    <span class="extpendTicketsTxt"></span>
+                </div>
+            </div>
+            <div class="curTimeCont extTiHeasSmTxt">
+                <div class="tok_currentTime">TIEMPO ACTUAL</div>
+                <div id="extTiViewServtime" class="extTiHeasBigTxt"></div>
+            </div>
+            <div class="extTiParWarp">
+                <div id="extTiParent" class="extTiParent">
+                    <div class="extTiBack">
+                        <img class="extTiBig"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNjI0cHgiIGhlaWdodD0iODE5cHgiIHZpZXdCb3g9IjAgMCAxNjI0IDgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYyNCA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuMztmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MXtkaXNwbGF5Om5vbmU7b3BhY2l0eTowLjY7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDMxNjNEO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDJ7b3BhY2l0eTowLjE1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2MjQsMEgwdjgwNGgxNDU0LjMxYzE0LjgsMCwyNy40LTEwLjYsMzAuMS0yNS4yTDE2MjQsMHoiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDc3OXY3ODFoNjc2LjMxQzE0NzAuMDEsNzgxLDE0ODIuNzEsNzcwLjQsMTQ4NS4zMSw3NTUuOHoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODEwLjQ1IiB5MT0iNTgxIiB4Mj0iODEwLjQ1IiB5Mj0iMTM2MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDAgLTU4MSkiPg0KCTxzdG9wICBvZmZzZXQ9IjAuODc2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDB2NzgxaDE0NTUuMzFDMTQ3MC4wMSw3ODEsMTQ4Mi43MSw3NzAuNCwxNDg1LjMxLDc1NS44eiIvPg0KPC9zdmc+DQo=">
+                    </div>
+                    <div class="extTiOpenLiWarpClip quoShow">
+                        <svg class="svg">
+                            <clipPath id="extTiClipt" clipPathUnits="objectBoundingBox">
+                                <path d="M0.916,0.968 L1,0 H0 v1 h0.898 C0.907,1,0.915,0.986,0.916,0.968"></path>
+                            </clipPath>
+                        </svg>
+                        <div id="extTiOpenHead" class="tabOpenHead quoShow">
+                            <span id="exTiOpenColumns" class="extTiOpenColumns tabOpenColumns"></span>
+                        </div>
+                        <div id="extTiOpenLiWarp" class="extTiOpenLiWarp simpBarWarp">
+                            <div id="exTiOpenList"></div>
+                        </div>
+                        <div id="exTiSelRowView">
+                            <div id="exTiSelRowBody">
+                                <div class="extTiSelTop flexRow">
+                                    <div id="exTiSelNumb"></div>
+                                    <div id="extTiSelTipTabWarp" class="simpBarWarp">
+                                        <div id="extTiSelTipTab"></div>
+                                    </div>
+                                </div>
+                                <div class="extTiSelSplit"></div>
+                                <div class="extTiSelTotal">
+                                    <span>
+                                        <span class="tok_totalTxt">Total</span>:</span>
+                                    <span id="extTiSelTotSt"></span>
+                                </div>
+                            </div>
+                            <div id="exTiSelClickRoCl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="extTiClose" class="flexCenter">X</div>
+            <div id="exTitpParent" class="actionButtons disabled">
+                <div id="exTidelTickCont" class="tickCreate">
+                    <div class="stdShadow tp0">
+                        <img class="trash"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMTJweCIgaGVpZ2h0PSIxNDRweCIgdmlld0JveD0iMCAwIDIxMiAxNDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIxMiAxNDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KCS5zdDN7b3BhY2l0eTowLjA5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjI4O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDV7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8yXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NntvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzNfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xOTcsM0g1MS41Yy0xNC44LDAtMjcuNCwxMC42LTMwLDI1LjNMMywxMjloMTQ1LjVjMTQuOCwwLDI3LjQtMTAuNiwzMC0yNS4zTDE5NywzeiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI5NyIgeTE9IjIyMiIgeDI9Ijk3IiB5Mj0iOTYiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCAyMjIpIj4NCgk8c3RvcCAgb2Zmc2V0PSIzLjk5NTg0MmUtMDciIHN0eWxlPSJzdG9wLWNvbG9yOiNDMjBEMDUiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojOTMwNTAyIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTE5NCwwSDQ4LjVjLTE0LjgsMC0yNy40LDEwLjYtMzAsMjUuM0wwLDEyNmgxNDUuNWMxNC44LDAsMjcuNC0xMC42LDMwLTI1LjNMMTk0LDB6Ii8+DQo8ZyBpZD0iWE1MSURfMV8iPg0KCTxwYXRoIGlkPSJYTUxJRF82XyIgY2xhc3M9InN0MiIgZD0iTTExNi43LDM2LjdoLTguNmMwLTIuNC0xLjktNC4zLTQuMi00LjNIOTFjLTIuNCwwLTQuMiwxLjktNC4yLDQuM2gtOC42Yy0yLjQsMC00LjIsMS45LTQuMiw0LjMNCgkJdjQuM2MwLDIuNCwxLjksNC4zLDQuMiw0LjN2MzguN2MwLDIuNCwxLjksNC4zLDQuMiw0LjNoMzBjMi40LDAsNC4yLTEuOSw0LjItNC4zVjQ5LjZjMi40LDAsNC4yLTEuOSw0LjItNC4zdi00LjINCgkJQzEyMSwzOC42LDExOS4xLDM2LjcsMTE2LjcsMzYuN3ogTTExMi41LDg4LjNoLTMwVjQ5LjZoNC4yVjg0aDQuMlY0OS42aDQuMlY4NGg0LjJWNDkuNmg0LjRWODRoNC4yVjQ5LjZoNC41TDExMi41LDg4LjMNCgkJTDExMi41LDg4LjN6IE0xMTYuNyw0NS4zSDc4LjFWNDFoMzguNlY0NS4zeiIvPg0KPC9nPg0KPHBhdGggY2xhc3M9InN0MyIgZD0iTTE5MS42MzMsMEwxNzMuNSw5OC43Yy0yLjYsMTQuNy0xNS4yLDI1LjMtMzAsMjUuM0gwLjM2N0wwLDEyNmgxNDUuNWMxNC44LDAsMjcuNC0xMC42LDMwLTI1LjNMMTk0LDBIMTkxLjYzM3oNCgkiLz4NCjxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik0xOTIuODE2LDBMMTc0LjUsOTkuN2MtMi42LDE0LjctMTUuMiwyNS4zLTMwLDI1LjNIMC4xODRMMCwxMjZoMTQ1LjVjMTQuOCwwLDI3LjQtMTAuNiwzMC0yNS4zTDE5NCwwSDE5Mi44MTZ6DQoJIi8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjM0Ljk1MzIiIHkxPSIxNDUuMDQ2OCIgeDI9IjExNC44MTY1IiB5Mj0iNjUuMTgzNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE0NikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMjAuNSwyNy4zQzIzLjEsMTIuNiwzNS43LDIsNTAuNSwyaDE0My4xMzNMMTk0LDBINDguNWMtMTQuOCwwLTI3LjQsMTAuNi0zMCwyNS4zTDAsMTI2aDIuMzY3TDIwLjUsMjcuM3oiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfM18iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzQuOTUzMiIgeTE9IjE0NS4wNDY4IiB4Mj0iMTE0LjQwOCIgeTI9IjY1LjU5MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE0NikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTkuNSwyNi4zQzIyLjEsMTEuNiwzNC43LDEsNDkuNSwxaDE0NC4zMTZMMTk0LDBINDguNWMtMTQuOCwwLTI3LjQsMTAuNi0zMCwyNS4zTDAsMTI2aDEuMTg0TDE5LjUsMjYuM3oiLz4NCjwvc3ZnPg0K">
+                    </div>
+                    <div id="exTidelButt" class="trash_action trashHover"></div>
+                </div>
+                <div class="tickCreate">
+                    <div id="print0" class="stdShadow">
+                        <img class="print"
+                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIzMDRweCIgaGVpZ2h0PSIxOTFweCIgdmlld0JveD0iMCAwIDMwNCAxOTEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwNCAxOTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMDU7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0M3tvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NHtvcGFjaXR5OjAuMTc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzJfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCgkuc3Q1e29wYWNpdHk6MC4zMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfM18pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KPC9zdHlsZT4NCjxmaWx0ZXIgIGlkPSJibHVyIj4NCgk8ZmVHYXVzc2lhbkJsdXIgIHN0ZERldmlhdGlvbj0iMyI+PC9mZUdhdXNzaWFuQmx1cj4NCjwvZmlsdGVyPg0KPGcgY2xhc3M9InN0MDAiPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTI4OCwzSDU4LjYxQzQzLjg0LDMsMzEuMTksMTMuNiwyOC41NywyOC4xN0wyLDE3NmgyMjkuMzljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4OCwzeiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxNDMiIHkxPSIxOTIiIHgyPSIxNDMiIHkyPSIxOSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE5MikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRUVEMDEiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojQTU5QTA2Ii8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTI4NiwwSDU2LjYxQzQxLjg0LDAsMjkuMTksMTAuNiwyNi41NywyNS4xN0wwLDE3M2gyMjkuMzljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4NiwweiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwOSw2Mi41VjM3LjRjMC0wLjMsMC4yLTAuNSwwLjUtMC41bDAsMGg1MC42YzAuMSwwLDAuMSwwLDAuMiwwLjFsMS43LDAuN2wtMC4yLDAuNGwwLjItMC40DQoJYzAuMSwwLDAuMSwwLjEsMC4yLDAuMWwxMS4zLDExLjFsMC43LDAuN2wtMC4zLDAuM2wwLjMtMC4zYzAuMSwwLjEsMC4xLDAuMiwwLjEsMC4zdjEyLjZjMCwwLjMtMC4yLDAuNS0wLjUsMC41SDE2OQ0KCWMtMC4zLDAtMC41LTAuMi0wLjUtMC41bDAsMHYtNmgtMTNjLTAuMywwLTAuNS0wLjItMC41LTAuNWwwLDBsMCwwdi0yLjRsMCwwVjQyLjdoLTQwLjJ2MTkuOGMwLDAuMy0wLjIsMC41LTAuNSwwLjVsMCwwaC00LjkNCglDMTA5LjIsNjMsMTA5LDYyLjcsMTA5LDYyLjVMMTA5LDYyLjVMMTA5LDYyLjV6IE0xMTUuOCw5NS45aDUzLjRoMC4xYzAuNywwLDEuNCwwLjIsMi4xLDAuNGMwLjcsMC4zLDEuMywwLjcsMS44LDEuMg0KCXMwLjksMS4xLDEuMiwxLjhjMC4zLDAuNiwwLjQsMS4zLDAuNCwydjAuMXY4aDExLjVoMC4xYzAuNSwwLDEtMC4xLDEuNC0wLjNjMC41LTAuMiwwLjktMC41LDEuMy0wLjljMC40LTAuNCwwLjctMC44LDAuOS0xLjMNCglzMC4zLTAuOSwwLjMtMS40di0wLjFWNzQuOHYtMC4xYzAtMC41LTAuMS0xLTAuMy0xLjRjLTAuMi0wLjUtMC41LTAuOS0wLjktMS4zcy0wLjgtMC43LTEuMy0wLjljLTAuNS0wLjItMC45LTAuMy0xLjQtMC4zaC0wLjENCglIOTguNmgtMC4xYy0wLjUsMC0xLDAuMS0xLjQsMC4zYy0wLjUsMC4yLTAuOSwwLjUtMS4zLDAuOXMtMC43LDAuOC0wLjksMS4zYy0wLjIsMC41LTAuMywwLjktMC4zLDEuNHYwLjF2MzAuOHYwLjENCgljMCwwLjUsMC4xLDEsMC4zLDEuNGMwLjIsMC41LDAuNSwwLjksMC45LDEuM3MwLjgsMC43LDEuMywwLjljMC41LDAuMiwwLjksMC4zLDEuNCwwLjNoMC4xaDExLjV2LTh2LTAuMWMwLTAuNywwLjItMS40LDAuNC0yDQoJYzAuMy0wLjcsMC43LTEuMywxLjItMS44YzAsMCwwLDAsMC4xLTAuMWMwLjUtMC41LDEuMi0wLjksMS44LTEuMmMwLjctMC4zLDEuNC0wLjQsMi4xLTAuNEMxMTUuNyw5NS45LDExNS44LDk1LjksMTE1LjgsOTUuOQ0KCUwxMTUuOCw5NS45TDExNS44LDk1Ljl6IE0xNzQuOSwxMTUuNHYxNS4xdjAuMWMwLDAuNy0wLjIsMS40LTAuNCwyYy0wLjMsMC43LTAuNywxLjMtMS4yLDEuOHMtMS4xLDAuOS0xLjgsMS4ycy0xLjMsMC40LTIuMSwwLjQNCgloLTAuMWgtNTMuNGgtMC4xYy0wLjcsMC0xLjQtMC4yLTIuMS0wLjRjLTAuNy0wLjMtMS4zLTAuNy0xLjgtMS4ycy0wLjktMS4xLTEuMi0xLjhjLTAuMy0wLjYtMC40LTEuMy0wLjQtMnYtMC4xdi0xNS4xSDk4LjZoLTAuMQ0KCWMtMS4zLDAtMi41LTAuMy0zLjctMC43Yy0yLjQtMS00LjQtMi45LTUuNC01LjNjLTAuNS0xLjEtMC43LTIuNC0wLjctMy42di0wLjFWNzQuOHYtMC4xYzAtMS4zLDAuMy0yLjUsMC43LTMuNw0KCWMwLjUtMS4yLDEuMi0yLjMsMi4xLTMuMmMwLjktMC45LDItMS42LDMuMi0yLjFzMi40LTAuNywzLjctMC43aDAuMWg4Ny43aDAuMWMxLjMsMCwyLjUsMC4zLDMuNywwLjdjMS4yLDAuNSwyLjMsMS4yLDMuMiwyLjENCglzMS42LDIsMi4xLDMuMmMwLjUsMS4xLDAuNywyLjQsMC43LDMuN3YwLjF2MzAuOHYwLjFjMCwxLjMtMC4zLDIuNS0wLjcsMy42Yy0wLjUsMS4yLTEuMiwyLjMtMi4xLDMuMmMtMC45LDAuOS0yLDEuNi0zLjIsMi4xDQoJcy0yLjQsMC43LTMuNywwLjdoLTAuMWgtMTEuM0wxNzQuOSwxMTUuNEwxNzQuOSwxMTUuNHogTTE2Nyw1MC43bC02LjEtNnY2SDE2N3ogTTE2OSwxMDEuN2gtNTN2MjguNmg1M1YxMDEuN0wxNjksMTAxLjd6Ii8+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjgzLjY0MSwwTDI1Ny40MywxNDUuODNDMjU0LjgxLDE2MC40LDI0Mi4xNiwxNzEsMjI3LjM5LDE3MUgwLjM1OUwwLDE3M2gyMjkuMzkNCgljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4NiwwSDI4My42NDF6Ii8+DQo8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMjg0LjgyLDBsLTI2LjM5LDE0Ni44M0MyNTUuODEsMTYxLjQsMjQzLjE2LDE3MiwyMjguMzksMTcySDAuMThMMCwxNzNoMjI5LjM5YzE0Ljc3LDAsMjcuNDItMTAuNiwzMC4wNC0yNS4xNw0KCUwyODYsMEgyODQuODJ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwLjI0MzciIHkxPSIxOTguMjU2MyIgeDI9IjE3Mi4wNzA1IiB5Mj0iNzYuNDI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE5MikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMjguNTcsMjcuMTdDMzEuMTksMTIuNiw0My44NCwyLDU4LjYxLDJoMjI3LjAzMUwyODYsMEg1Ni42MUM0MS44NCwwLDI5LjE5LDEwLjYsMjYuNTcsMjUuMTdMMCwxNzNoMi4zNTkNCglMMjguNTcsMjcuMTd6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzNfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwLjI0MzciIHkxPSIxOTguMjU2MyIgeDI9IjE3MS42NiIgeTI9Ijc2Ljg0IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgMTkyKSI+DQoJPHN0b3AgIG9mZnNldD0iOS4wNTcyNDJlLTA4IiBzdHlsZT0ic3RvcC1jb2xvcjojRkZGRkZGIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0NDQ0NDQyIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDUiIGQ9Ik0yNy41NywyNi4xN0MzMC4xOSwxMS42LDQyLjg0LDEsNTcuNjEsMWgyMjguMjFMMjg2LDBINTYuNjFDNDEuODQsMCwyOS4xOSwxMC42LDI2LjU3LDI1LjE3TDAsMTczaDEuMTgNCglMMjcuNTcsMjYuMTd6Ii8+DQo8L3N2Zz4NCg==">
+                    </div>
+                    <div id="exTiprintAction" class="print_action printHover">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dos_wrapper" class="backgroundImage dos_backgroundImage stdText gameSelected" style="left: 0vw;">
+            <div id="dos_allwrap" class="allwrap">
+                <div class="header">
+                    <div class="menu_parent">
+                        <div id="dos_butTip" class="menu_item dos_colorHiTxt tok_Page_Tipp selected">APUESTAS</div>
+                        <div id="dos_butRes" class="menu_item dos_colorHiTxt tok_Page_Results">RESULTADOS</div>
+                        <div id="dos_butQuo" class="menu_item dos_colorHiTxt tok_Page_Quotes">CUOTAS</div>
+                        <div id="dos_butTur" class="menu_item dos_colorHiTxt tok_Page_TurnOver">CUADRE</div>
+                    </div>
+                    <div id="dos_extTiShowBut" class="extTiShowBut flexCenter">
+                        <div class="tok_extTiButTxt extTiHeasBigTxt">ORDENAR TICKET</div>
+                        <div class="extTikNuPeTxt">
+                            <span class="extTiNumbPendTi"></span>
+                            <span class="extpendTicketsTxt"></span>
+                        </div>
+                    </div>
+                    <div class="header_parent">
+                        <div class="header_item dos_heaHideNoFu">
+                            <div class="txt_race tok_theRace">CARRERA</div>
+                            <div id="dos_raceNumb" class="txt_racenum">0001</div>
+                        </div>
+                        <div class="header_item dos_heaHideNoFu">
+                            <div class="txt_header_small tok_startsRac">EMPIEZA</div>
+                            <div id="dos_raceStart" class="txt_header">00:00:00</div>
+                        </div>
+                        <div class="header_item txt_blue dos_colorHiTxt">
+                            <div class="txt_header_blue_small tok_current">ACTIVO</div>
+                            <div id="dos_servtime" class="txt_header">00:00:00</div>
+                        </div>
+                        <div id="dos_countDown" class="header_item">
+                            <div class="flexRow" style="width:16vw">
+                                <div class="timericon"></div>
+                                <div class="txt_header_small tok_sekShort">SEG</div>
+                                <div></div>
+                            </div>
+                            <div class="flexRow">
+                                <div class="timericon">
+                                    <img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMSAyMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjEgMjE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMC41LDBDMTAsMCw5LjcsMC40LDkuNywwLjhWNWMwLDAuNSwwLjQsMC44LDAuOCwwLjhzMC44LTAuNCwwLjgtMC44VjEuN2M0LjUsMC40LDgsNC4yLDgsOC44DQoJCQkJYzAsNC44LTQsOC44LTguOSw4LjhjLTQuOCwwLTguOC00LTguOC04LjhjMC0yLjQsMS00LjcsMi43LTYuM2MwLjMtMC4zLDAuNC0wLjgsMC0xLjJjLTAuMy0wLjMtMC44LTAuNC0xLjIsMA0KCQkJCUMxLjEsNC45LDAsNy42LDAsMTAuNUMwLDE2LjMsNC43LDIxLDEwLjUsMjFDMTYuMywyMSwyMSwxNi4zLDIxLDEwLjVDMjEsNC43LDE2LjMsMCwxMC41LDB6IE05LjMsMTEuNWMwLjEsMC4yLDAuMiwwLjMsMC40LDAuNA0KCQkJCWMwLjcsMC41LDEuNywwLjMsMi4yLTAuNGMwLjUtMC43LDAuMy0xLjctMC40LTIuMkw2LjMsNS42Yy0wLjItMC4yLTAuNC0wLjItMC42LDBDNS41LDUuNyw1LjQsNi4xLDUuNiw2LjNMOS4zLDExLjV6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==">
+                                </div>
+                                <div id="dos_countDownTime" class="txt_header countDownTime">001</div>
+                                <div class="timerbar">
+                                    <div id="dos_timerbarLine" class="timerbarLine"
+                                        style="clip-path: polygon(0px 0px, 43.9296% 0px, 41.2296% 100%, 0% 100%);">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game_parent">
+                        <div>
+                            <div class="gameIconHeadBa dos_gameIconHeadBa"> </div>
+                            <div class="gameIconHead dos_gameIconHead"> </div>
+                            <div class="logoSwOverlay"> </div>
+                            <div id="dos_switchGaBut" class="game_s"></div>
+                        </div>
+                    </div>
+                    <div class="timer2_parent">
+                        <div class="topLeftCont">
+                            <img class="timer2 stdBoxShadow"
+                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAzMTggMTczIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMTggMTczOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7b3BhY2l0eTowLjI1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzdkYWJmZjtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE4LDBINTYuOUM0Mi4yLDAsMjkuNiwxMC42LDI3LDI1LjJMMC41LDE3M0gzMThWMHoiLz4NCjwvc3ZnPg0K">
+                            <img class="timer2Over"
+                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAzMTggMTczIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMTggMTczOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7b3BhY2l0eTowLjI1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzdkYWJmZjtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE4LDBINTYuOUM0Mi4yLDAsMjkuNiwxMC42LDI3LDI1LjJMMC41LDE3M0gzMThWMHoiLz4NCjwvc3ZnPg0K">
+                        </div>
+                        <div style="height:9vw;width:16.3vw;position:absolute;right:0;z-index:2002"> <img
+                                class="lasche_ro"
+                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAzMDAgMTczIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMDAgMTczOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7b3BhY2l0eTowLjY2O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzAzMTYzZDtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzAwLDBINTYuOUM0Mi4yLDAsMjkuNiwxMC42LDI3LDI1LjJMMC41LDE3M0gzMDBWMHoiLz4NCjwvc3ZnPg0K">
+                            <div class="topInfos"> <span class="operatorId dos_colorHiTxt">111-111-111-111</span><br>
+                                <span class="sessionId">00000000000</span><br> <span class="versionId">2.49.02</span>
+                            </div>
+                            <div id="dos_SwitchToGameInfo" class="switchToGameInfo" style="visibility: hidden;">
+                                <div class="flexRow" style="width:16vw;min-height:.71vw">
+                                    <div class="timericon"></div>
+                                    <div class="txt_header_small tok_sekShort">SEG</div>
+                                    <div></div>
+                                </div>
+                                <div class="flexRow">
+                                    <div class="timericon"> <img
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyMSAyMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjEgMjE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMC41LDBDMTAsMCw5LjcsMC40LDkuNywwLjhWNWMwLDAuNSwwLjQsMC44LDAuOCwwLjhzMC44LTAuNCwwLjgtMC44VjEuN2M0LjUsMC40LDgsNC4yLDgsOC44DQoJCQkJYzAsNC44LTQsOC44LTguOSw4LjhjLTQuOCwwLTguOC00LTguOC04LjhjMC0yLjQsMS00LjcsMi43LTYuM2MwLjMtMC4zLDAuNC0wLjgsMC0xLjJjLTAuMy0wLjMtMC44LTAuNC0xLjIsMA0KCQkJCUMxLjEsNC45LDAsNy42LDAsMTAuNUMwLDE2LjMsNC43LDIxLDEwLjUsMjFDMTYuMywyMSwyMSwxNi4zLDIxLDEwLjVDMjEsNC43LDE2LjMsMCwxMC41LDB6IE05LjMsMTEuNWMwLjEsMC4yLDAuMiwwLjMsMC40LDAuNA0KCQkJCWMwLjcsMC41LDEuNywwLjMsMi4yLTAuNGMwLjUtMC43LDAuMy0xLjctMC40LTIuMkw2LjMsNS42Yy0wLjItMC4yLTAuNC0wLjItMC42LDBDNS41LDUuNyw1LjQsNi4xLDUuNiw2LjNMOS4zLDExLjV6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==">
+                                    </div>
+                                    <div class="txt_header countDownTime switchToCountTime" id="dos_switchToCountTime">103</div>
+                                    <div class="switchToGaTxt">CARRERA DE DOG 6</div>
+                                </div>
+                            </div>
+                            <div id="dos_ticketScannAct" class="ticketScannAct flexRow">
+                                <div></div> <span class="tok_identity">ID</span>
+                            </div>
+                            <div id="dos_ticketScannCont" class="ticketScannCont actionBackCol flexRow">
+                                <div id="dos_tiScSe" class="tiScSe"></div> <input id="dos_tickScaInp" class="tickScaInp"
+                                    type="text" name="dos_tiinp" placeholder="Introducir el ID de boleto"
+                                    autocomplete="off" spellcheck="false">
+                                <div id="dos_tiScDel" class="tiScDel"></div>
+                            </div>
+                            <div class="language_settings_menu_button">
+                                <div id="dos_butSet" class="butSet"> </div>
+                            </div>
+                            <div class="language_settings_menu_wrapper" id="dos_language_settings"
+                                style="height: 4.9vw;">
+                                <div class="language_settings_menu" id="dos_language_settings_menu">
+                                    <div class="language_menu_items" id="dos_language_menu_items"
+                                        style="transform: translateY(26.15vw);">
+                                        <div class="language_menu_item" id="dos_ languageBtn_es"
+                                            style="margin-left: 1.6800000000000002vw"><img class="flagImage"
+                                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMi41IDE1Ij48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMCAwaDIyLjV2MTVIMFYweiIvPjxwYXRoIGZpbGw9IiNEMDM0MzMiIGQ9Ik0wIDBoMjIuNXY0SDBWMHptMCAxMWgyMi41djRIMHYtNHoiLz48cGF0aCBmaWxsPSIjRkJDQTQ2IiBkPSJNMCA0aDIyLjV2N0gwVjR6Ii8+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTcuOCA3aDF2LjVoLTFWN3oiLz48cGF0aCBmaWxsPSIjQTQxNTE3IiBkPSJNNy4yIDguNWMwIC4zLjMuNS42LjVzLjYtLjIuNi0uNUw4LjUgN0g3LjFsLjEgMS41ek02LjYgN2MwLS4zLjItLjUuNC0uNWgxLjVjLjMgMCAuNS4yLjUuNFY3bC0uMSAxLjVjLS4xLjYtLjUgMS0xLjEgMS0uNiAwLTEtLjQtMS4xLTFMNi42IDd6Ii8+PHBhdGggZmlsbD0iI0E0MTUxNyIgZD0iTTYuOCA3LjVoMlY4aC0uNWwtLjUgMS0uNS0xaC0uNXYtLjV6TTUuMyA2aDF2My41aC0xVjZ6bTQgMGgxdjMuNWgtMVY2em0tMi41LS41YzAtLjMuMi0uNS41LS41aDFjLjMgMCAuNS4yLjUuNXYuMmMwIC4yLS4xLjMtLjMuM0g3Yy0uMSAwLS4yLS4xLS4yLS4ydi0uM3oiLz48L3N2Zz4="
+                                                alt="es" style="z-index: 100;">
+                                            <div class="language_menu_item_text"><span id="dos_language_es"
+                                                    class="current_language tok_langTxt_es">ESPAÑOL</span></div>
+                                        </div>
+                                        <div class="language_menu_item breakItem toggleLine"
+                                            style="margin-left: 1.34vw">
+                                            <div class="language_menu_item_set_text"><span
+                                                    class="tok_autoSwGa noActive">CAMBIO AUTOMÁTICO</span></div>
+                                            <div style="margin-right: 0.1vw;position: relative;top: 0.05vw;">
+                                                <div class="toggler "><span class="tokc_on_lab togglerTxt"
+                                                        id="dos_togglerAswOnTxt">Enc.</span>
+                                                    <div class="togglerBtn" id="dos_togglerAsw">
+                                                        <div class="togglerCircle togglerOut" id="dos_togglerAswCircle">
+                                                        </div>
+                                                    </div><span id="dos_togglerAswOffTxt"
+                                                        class="tokc_off_lab togglerTxt togglerActiveText noActive">APA.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <img
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI0MjhweCIgaGVpZ2h0PSI2MDFweCIgdmlld0JveD0iMCAwIDQyOCA2MDEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyOCA2MDE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMwQzFGNDY7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDYuNzgsMEwwLDYwMWgyOTUuNzJjMTQuODEsMCwyNy40Mi0xMC42LDMwLjAyLTI1LjJMNDI4LDAiLz4NCjwvc3ZnPg0K"
+                                        alt="background" style="position:absolute;width:100%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainContent">
+                        <div id="dos_parent_1">
+                            <div>
+                                <div id="dos_first" class="firstLab"> <img class="first_"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxMTggMTEzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMTggMTEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8Zz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjAuNSwzMC4zaC0wLjNMMS40LDQyLjFjLTAuOSwwLjYtMS45LDAuMi0xLjYtMS4xTDMsMjIuOGMwLjItMC45LDAuNi0xLjcsMS40LTIuMkwyNC4yLDcuNg0KCQlDMjUuMyw3LDI2LjEsNi43LDI3LDYuN2gxNi44YzAuOSwwLDEuNiwwLjYsMS40LDEuNkwyNywxMTEuMmMtMC4yLDAuOS0wLjgsMS42LTEuNywxLjZINy41Yy0wLjksMC0xLjYtMC42LTEuNC0xLjZMMjAuNSwzMC4zeiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+                                    <span class="fiTxt tok_stPlace">°</span> </div>
+                            </div>
+                            <div id="dos_selNumbFirst1" class="dos_selNumCont first" data-numb="1">
+                                <div></div>
+                                <div class="dos_selNumber dos_number1"></div>
+                            </div>
+                            <div id="dos_selNumbFirst2" class="dos_selNumCont" data-numb="2">
+                                <div></div>
+                                <div class="dos_selNumber dos_number2"></div>
+                            </div>
+                            <div id="dos_selNumbFirst3" class="dos_selNumCont" data-numb="3">
+                                <div></div>
+                                <div class="dos_selNumber dos_number3"></div>
+                            </div>
+                            <div id="dos_selNumbFirst4" class="dos_selNumCont" data-numb="4">
+                                <div></div>
+                                <div class="dos_selNumber dos_number4"></div>
+                            </div>
+                            <div id="dos_selNumbFirst5" class="dos_selNumCont" data-numb="5">
+                                <div></div>
+                                <div class="dos_selNumber dos_number5"></div>
+                            </div>
+                            <div id="dos_selNumbFirst6" class="dos_selNumCont" data-numb="6">
+                                <div></div>
+                                <div class="dos_selNumber dos_number6"></div>
+                            </div>
+                        </div>
+                        <div id="dos_parent_1_active">
+                            <div></div>
+                            <div id="dos_activeFirst1" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeFirst2" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeFirst3" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeFirst4" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeFirst5" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeFirst6" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                        </div>
+                        <div id="dos_parent_2">
+                            <div>
+                                <div id="dos_second"> <img class="first_"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxODQgMTIwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxODQgMTIwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8Zz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMy4zLDEwMy43YzAuMy0xLDAuNy0xLjgsMS41LTIuNmw0NS43LTQ2LjljNi42LTYuOSw5LjctMTIuMyw5LjctMTljMC02LjEtMy42LTEwLjItMTAtMTAuMg0KCQljLTcuNCwwLTEyLjksNC45LTE1LjQsMTMuNmMtMC4zLDEtMSwxLjUtMiwxLjNMMTYuMSwzN2MtMC44LTAuMi0xLjEtMC44LTAuOC0xLjhDMTkuMSwyMCwzMS44LDYuNiw1My4zLDYuNg0KCQljMTgsMCwyOS4yLDEwLjgsMjkuMiwyNS42YzAsMTIuNi01LjYsMjIuNC0xNi4xLDMzLjFsLTM0LjksMzUuNHYwLjNINjljMSwwLDEuNiwwLjcsMS41LDEuNmwtMi44LDE1LjZjLTAuMiwxLTAuOCwxLjYtMS44LDEuNkgyLjINCgkJYy0xLDAtMS42LTAuNy0xLjUtMS42TDMuMywxMDMuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K">
+                                    <span class="ndTxt tok_ndPlace">°</span> </div>
+                            </div>
+                            <div id="dos_selNumbSecond1" class="dos_selNumCont first" data-numb="1">
+                                <div class="dos_selNumber dos_number1"></div>
+                            </div>
+                            <div id="dos_selNumbSecond2" class="dos_selNumCont" data-numb="2">
+                                <div class="dos_selNumber dos_number2"></div>
+                            </div>
+                            <div id="dos_selNumbSecond3" class="dos_selNumCont" data-numb="3">
+                                <div class="dos_selNumber dos_number3"></div>
+                            </div>
+                            <div id="dos_selNumbSecond4" class="dos_selNumCont" data-numb="4">
+                                <div class="dos_selNumber dos_number4"></div>
+                            </div>
+                            <div id="dos_selNumbSecond5" class="dos_selNumCont" data-numb="5">
+                                <div class="dos_selNumber dos_number5"></div>
+                            </div>
+                            <div id="dos_selNumbSecond6" class="dos_selNumCont" data-numb="6">
+                                <div class="dos_selNumber dos_number6"></div>
+                            </div>
+                        </div>
+                        <div id="dos_parent_2_active">
+                            <div></div>
+                            <div id="dos_activeSecond1" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeSecond2" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeSecond3" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeSecond4" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeSecond5" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                            <div id="dos_activeSecond6" class="dos_activeCont">
+                                <div class="dos_active"></div>
+                            </div>
+                        </div>
+                        <div class="func_contain">
+                            <div id="dos_func_parent_1" class="func_parent_1">
+                                <div>
+                                    <div class="funcbuttCont stdShadow"> <img class="funcbutt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNzRweCIgaGVpZ2h0PSIxMzFweCIgdmlld0JveD0iMCAwIDE3NCAxMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3NCAxMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMl8pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDN7b3BhY2l0eTowLjQ5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8zXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NXtvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzRfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNTksM0g0MC40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMywxMTZoMTE5YzkuOCwwLDE3LjgtNy4xLDE5LjUtMTYuNkwxNTksM3oiLz4NCjwvZz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNzgiIHkxPSIxODIiIHgyPSI3OCIgeTI9IjI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDI5NSkiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwQjFGNjAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTU2LDBIMzcuNGMtOS44LDAtMTguMiw3LjEtMTkuOSwxNi42TDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDB6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ijc4IiB5MT0iMTkiIHgyPSI3OCIgeTI9IjEzMiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTUzLjYzNywwTDEzNi41LDk0LjRjLTEuNyw5LjUtOS43LDE2LjYtMTkuNSwxNi42SDAuMzYzTDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDBIMTUzLjYzN3oiDQoJLz4NCjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0xMzcuNyw5NS44Yy0xLjcsOS40LTEwLDE2LjItMTkuNiwxNi4ybC0xMTgsMC4zTDAsMTEzaDExOC42YzkuOCwwLDE4LjItNy4xLDE5LjktMTYuNkwxNTYsMGgtMUwxMzcuNyw5NS44eiINCgkvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8zXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNS4yNjg3IiB5MT0iMTI4LjIzMTMiIHgyPSI4OS41Njg1IiB5Mj0iNjMuOTMxNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTkuNSwxOC42QzIxLjIsOS4xLDI4LjY1MywyLDM5LjQsMmgxMTYuMjM3TDE1NiwwSDM3LjRjLTkuOCwwLTE4LjIsNy4xLTE5LjksMTYuNkwwLDExM2gyLjM2M0wxOS41LDE4LjZ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI1LjI2ODciIHkxPSIxMjguMjMxMyIgeDI9Ijg5LjE1OSIgeTI9IjY0LjM0MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMTguNSwxNy42QzIwLjIsOC4xLDI4LjYsMSwzOC40LDFoMTE3LjQxOEwxNTYsMEgzNy40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMCwxMTNoMS4xODJMMTguNSwxNy42eiIvPg0KPC9zdmc+DQo=">
+                                    </div>
+                                    <div class="funcbuttCont"> <img class="functxt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNTYgMTEzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNTYgMTEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8ZyBpZD0idXBkb3duIj4NCgk8Zz4NCgkJPHBhdGggY2xhc3M9InN0MCIgZD0iTTc0LjgsNjYuNWwwLTI2LjRjMC0wLjUsMC40LTAuOSwwLjktMC45bDUuMywwYzAuOCwwLDEuMi0wLjksMC43LTEuNEw2OS45LDI0LjdjLTAuNC0wLjQtMS0wLjQtMS4zLDANCgkJCUw1Ni45LDM3LjljLTAuNSwwLjYtMC4xLDEuNCwwLjcsMS40bDUuMywwYzAuNSwwLDAuOSwwLjQsMC45LDAuOWwwLDI2LjRjMCwwLjUsMC40LDAuOSwwLjksMC45bDkuMSwwDQoJCQlDNzQuNCw2Ny40LDc0LjgsNjcsNzQuOCw2Ni41eiBNOTguNCw3My43bC01LjMsMGMtMC41LDAtMC45LTAuNC0wLjktMC45bDAtMjYuNGMwLTAuNS0wLjQtMC45LTAuOS0wLjlsLTkuMSwwDQoJCQljLTAuNSwwLTAuOSwwLjQtMC45LDAuOWwwLDI2LjRjMCwwLjUtMC40LDAuOS0wLjksMC45bC01LjMsMGMtMC44LDAtMS4yLDAuOS0wLjcsMS40bDExLjcsMTMuMWMwLjQsMC40LDEsMC40LDEuMywwbDExLjYtMTMuMg0KCQkJQzk5LjYsNzQuNiw5OS4yLDczLjcsOTguNCw3My43eiIvPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K">
+                                    </div>
+                                    <div id="dos_func_but_1" class="funcbuttCont funcbutthov dos_funcbutthov"></div>
+                                </div>
+                                <div>
+                                    <div class="funcbutt2 stdShadow"> <img class="funcbutt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNzRweCIgaGVpZ2h0PSIxMzFweCIgdmlld0JveD0iMCAwIDE3NCAxMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3NCAxMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMl8pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDN7b3BhY2l0eTowLjQ5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8zXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NXtvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzRfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNTksM0g0MC40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMywxMTZoMTE5YzkuOCwwLDE3LjgtNy4xLDE5LjUtMTYuNkwxNTksM3oiLz4NCjwvZz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNzgiIHkxPSIxODIiIHgyPSI3OCIgeTI9IjI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDI5NSkiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwQjFGNjAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTU2LDBIMzcuNGMtOS44LDAtMTguMiw3LjEtMTkuOSwxNi42TDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDB6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ijc4IiB5MT0iMTkiIHgyPSI3OCIgeTI9IjEzMiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTUzLjYzNywwTDEzNi41LDk0LjRjLTEuNyw5LjUtOS43LDE2LjYtMTkuNSwxNi42SDAuMzYzTDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDBIMTUzLjYzN3oiDQoJLz4NCjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0xMzcuNyw5NS44Yy0xLjcsOS40LTEwLDE2LjItMTkuNiwxNi4ybC0xMTgsMC4zTDAsMTEzaDExOC42YzkuOCwwLDE4LjItNy4xLDE5LjktMTYuNkwxNTYsMGgtMUwxMzcuNyw5NS44eiINCgkvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8zXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNS4yNjg3IiB5MT0iMTI4LjIzMTMiIHgyPSI4OS41Njg1IiB5Mj0iNjMuOTMxNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTkuNSwxOC42QzIxLjIsOS4xLDI4LjY1MywyLDM5LjQsMmgxMTYuMjM3TDE1NiwwSDM3LjRjLTkuOCwwLTE4LjIsNy4xLTE5LjksMTYuNkwwLDExM2gyLjM2M0wxOS41LDE4LjZ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI1LjI2ODciIHkxPSIxMjguMjMxMyIgeDI9Ijg5LjE1OSIgeTI9IjY0LjM0MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMTguNSwxNy42QzIwLjIsOC4xLDI4LjYsMSwzOC40LDFoMTE3LjQxOEwxNTYsMEgzNy40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMCwxMTNoMS4xODJMMTguNSwxNy42eiIvPg0KPC9zdmc+DQo=">
+                                    </div>
+                                    <div class="funcbutt2"> <img class="functxt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNTYgMTEzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNTYgMTEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8ZyBpZD0iZGlhZyI+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02My44LDQ3LjJjLTAuMy0wLjMtMC4zLTAuOSwwLTEuMmwzLjgtMy43YzAuNS0wLjUsMC4yLTEuNC0wLjYtMS41bC0xNy44LTEuMmMtMC41LDAtMSwwLjQtMC45LDAuOWwxLjMsMTcuNA0KCQkJYzAuMSwwLjcsMSwxLjEsMS41LDAuNWwzLjgtMy43YzAuMy0wLjMsMC45LTAuMywxLjIsMGwxOS4xLDE4LjZjMC4zLDAuMywwLjksMC4zLDEuMiwwbDYuNC02LjNjMC4zLTAuMywwLjMtMC45LDAtMS4yTDYzLjgsNDcuMnoNCgkJCSBNMTA2LjQsNTUuMWMtMC4xLTAuNy0xLTEuMS0xLjUtMC41bC0zLjgsMy43Yy0wLjMsMC4zLTAuOSwwLjMtMS4yLDBMODAuNywzOS42Yy0wLjMtMC4zLTAuOS0wLjMtMS4yLDBsLTYuNCw2LjMNCgkJCWMtMC4zLDAuMy0wLjMsMC45LDAsMS4ybDE5LjEsMTguNmMwLjMsMC4zLDAuMywwLjksMCwxLjJsLTMuOCwzLjdjLTAuNSwwLjUtMC4yLDEuNCwwLjYsMS41bDE3LjgsMS4yYzAuNSwwLDEtMC40LDAuOS0wLjkNCgkJCUwxMDYuNCw1NS4xeiIvPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K">
+                                    </div>
+                                    <div id="dos_func_but_2" class="funcbutt2 funcbutthov dos_funcbutthov"></div>
+                                </div>
+                            </div>
+                            <div id="dos_func_parent_2" class="func_parent_2">
+                                <div>
+                                    <div class="funcbuttCont stdShadow"> <img class="funcbutt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNzRweCIgaGVpZ2h0PSIxMzFweCIgdmlld0JveD0iMCAwIDE3NCAxMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3NCAxMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMl8pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDN7b3BhY2l0eTowLjQ5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8zXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NXtvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzRfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNTksM0g0MC40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMywxMTZoMTE5YzkuOCwwLDE3LjgtNy4xLDE5LjUtMTYuNkwxNTksM3oiLz4NCjwvZz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNzgiIHkxPSIxODIiIHgyPSI3OCIgeTI9IjI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDI5NSkiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwQjFGNjAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTU2LDBIMzcuNGMtOS44LDAtMTguMiw3LjEtMTkuOSwxNi42TDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDB6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ijc4IiB5MT0iMTkiIHgyPSI3OCIgeTI9IjEzMiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTUzLjYzNywwTDEzNi41LDk0LjRjLTEuNyw5LjUtOS43LDE2LjYtMTkuNSwxNi42SDAuMzYzTDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDBIMTUzLjYzN3oiDQoJLz4NCjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0xMzcuNyw5NS44Yy0xLjcsOS40LTEwLDE2LjItMTkuNiwxNi4ybC0xMTgsMC4zTDAsMTEzaDExOC42YzkuOCwwLDE4LjItNy4xLDE5LjktMTYuNkwxNTYsMGgtMUwxMzcuNyw5NS44eiINCgkvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8zXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNS4yNjg3IiB5MT0iMTI4LjIzMTMiIHgyPSI4OS41Njg1IiB5Mj0iNjMuOTMxNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTkuNSwxOC42QzIxLjIsOS4xLDI4LjY1MywyLDM5LjQsMmgxMTYuMjM3TDE1NiwwSDM3LjRjLTkuOCwwLTE4LjIsNy4xLTE5LjksMTYuNkwwLDExM2gyLjM2M0wxOS41LDE4LjZ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI1LjI2ODciIHkxPSIxMjguMjMxMyIgeDI9Ijg5LjE1OSIgeTI9IjY0LjM0MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMTguNSwxNy42QzIwLjIsOC4xLDI4LjYsMSwzOC40LDFoMTE3LjQxOEwxNTYsMEgzNy40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMCwxMTNoMS4xODJMMTguNSwxNy42eiIvPg0KPC9zdmc+DQo=">
+                                    </div>
+                                    <div class="funcbuttCont"> <img class="functxt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNTYgMTEzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNTYgMTEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZEO30NCjwvc3R5bGU+DQo8cGF0aCBpZD0iUiIgY2xhc3M9InN0MCIgZD0iTTU5LDc4LjZjLTAuMSwwLjQsMC4yLDAuNywwLjYsMC43bDYuMywwYzAuMywwLDAuNi0wLjMsMC43LTAuN0w2OS44LDYxYzAtMC4zLDAuMi0wLjQsMC41LTAuNGw4LjIsMA0KCWw1LjQsMTcuOWMwLjEsMC41LDAuMywwLjcsMC45LDAuN2w2LjEsMGMwLjQsMCwwLjctMC40LDAuNS0wLjlsLTUuOC0xOC42QzkyLjMsNTcuNyw5Nyw1Miw5Nyw0NC42YzAtNi42LTQuOS0xMC44LTEyLjMtMTAuOGwtMTcsMA0KCWMtMC40LDAtMC43LDAuMy0wLjcsMC43TDU5LDc4LjZ6IE03MS40LDU0Yy0wLjMsMC0wLjQtMC4xLTAuMy0wLjRsMi4zLTEyLjdjMC4xLTAuMywwLjItMC40LDAuNS0wLjRsOS41LDBjMy42LDAsNS45LDIsNS45LDUuMg0KCWMwLDUuMi0zLjcsOC4yLTguNCw4LjNMNzEuNCw1NHoiLz4NCjwvc3ZnPg0K">
+                                    </div>
+                                    <div id="dos_func_but_3" class="funcbuttCont funcbutthov dos_funcbuttSet"></div>
+                                </div>
+                                <div>
+                                    <div class="funcbutt2 stdShadow"> <img class="funcbutt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNzRweCIgaGVpZ2h0PSIxMzFweCIgdmlld0JveD0iMCAwIDE3NCAxMzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3NCAxMzE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMl8pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDN7b3BhY2l0eTowLjQ5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8zXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NXtvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzRfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNTksM0g0MC40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMywxMTZoMTE5YzkuOCwwLDE3LjgtNy4xLDE5LjUtMTYuNkwxNTksM3oiLz4NCjwvZz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iNzgiIHkxPSIxODIiIHgyPSI3OCIgeTI9IjI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDI5NSkiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwQjFGNjAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTU2LDBIMzcuNGMtOS44LDAtMTguMiw3LjEtMTkuOSwxNi42TDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDB6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9Ijc4IiB5MT0iMTkiIHgyPSI3OCIgeTI9IjEzMiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjIuNTk0NjM0ZS0wNiIgc3R5bGU9InN0b3AtY29sb3I6IzA2MTMzQyIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTUzLjYzNywwTDEzNi41LDk0LjRjLTEuNyw5LjUtOS43LDE2LjYtMTkuNSwxNi42SDAuMzYzTDAsMTEzaDExOWM5LjgsMCwxNy44LTcuMSwxOS41LTE2LjZMMTU2LDBIMTUzLjYzN3oiDQoJLz4NCjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0xMzcuNyw5NS44Yy0xLjcsOS40LTEwLDE2LjItMTkuNiwxNi4ybC0xMTgsMC4zTDAsMTEzaDExOC42YzkuOCwwLDE4LjItNy4xLDE5LjktMTYuNkwxNTYsMGgtMUwxMzcuNyw5NS44eiINCgkvPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8zXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIyNS4yNjg3IiB5MT0iMTI4LjIzMTMiIHgyPSI4OS41Njg1IiB5Mj0iNjMuOTMxNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMTkuNSwxOC42QzIxLjIsOS4xLDI4LjY1MywyLDM5LjQsMmgxMTYuMjM3TDE1NiwwSDM3LjRjLTkuOCwwLTE4LjIsNy4xLTE5LjksMTYuNkwwLDExM2gyLjM2M0wxOS41LDE4LjZ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzRfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjI1LjI2ODciIHkxPSIxMjguMjMxMyIgeDI9Ijg5LjE1OSIgeTI9IjY0LjM0MSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDEzMikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMTguNSwxNy42QzIwLjIsOC4xLDI4LjYsMSwzOC40LDFoMTE3LjQxOEwxNTYsMEgzNy40Yy05LjgsMC0xOC4yLDcuMS0xOS45LDE2LjZMMCwxMTNoMS4xODJMMTguNSwxNy42eiIvPg0KPC9zdmc+DQo=">
+                                    </div>
+                                    <div class="funcbutt2"> <img class="functxt"
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAxNTYgMTEzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNTYgMTEzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojRkZGRkZGO30NCjwvc3R5bGU+DQo8ZyBpZD0iUl94MkZfMiI+DQoJPGc+DQoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik03MC44LDU5bC00LTEzLjVjNC44LTEuOCw4LTYsOC0xMS42YzAtNS0zLjYtOC40LTkuOC04LjRsLTEzLjIsMGMtMC4zLDAtMC41LDAuMi0wLjYsMC41bC01LjksMzMuMQ0KCQkJYy0wLjEsMC4zLDAuMiwwLjUsMC41LDAuNWw2LjIsMGMwLjMsMCwwLjUtMC4yLDAuNS0wLjVsMi4yLTEyLjNjMC0wLjIsMC4yLTAuMywwLjQtMC4zbDUsMGwzLjYsMTIuNmMwLjEsMC40LDAuMywwLjUsMC43LDAuNQ0KCQkJbDYuMSwwQzcwLjcsNTkuNiw3MC45LDU5LjMsNzAuOCw1OXogTTYyLDQwLjVsLTUuOSwwYy0wLjIsMC0wLjMtMC4xLTAuMy0wLjNsMS41LTguMmMwLjEtMC4yLDAuMi0wLjMsMC40LTAuM2w1LjksMA0KCQkJYzIuNCwwLDMuOSwxLjIsMy45LDMuNEM2Ny41LDM4LjUsNjUsNDAuNCw2Miw0MC41eiBNOTQuOCwzMi45bC0zLjUsMGMtMC41LDAtMC44LDAuMi0xLDAuN0w2Ny43LDc5LjJjLTAuMiwwLjQtMC4xLDAuNywwLjMsMC43DQoJCQlsMy41LDBjMC40LDAsMC44LTAuMiwxLTAuN2wyMi42LTQ1LjZDOTUuNCwzMy4yLDk1LjIsMzIuOSw5NC44LDMyLjl6IE0xMDYuNiw4MS43bC0xMS43LDBsMC0wLjFsMTAuOS0xMC45YzMuMy0zLjMsNS02LjMsNS0xMC4xDQoJCQljMC00LjUtMy41LTcuOC05LjEtNy44Yy02LjcsMC0xMC43LDQuMS0xMS45LDguOGMtMC4xLDAuMywwLDAuNSwwLjMsMC42bDUuMiwwLjljMC4zLDAsMC41LTAuMSwwLjYtMC40YzAuOC0yLjcsMi41LTQuMiw0LjgtNC4yDQoJCQljMiwwLDMuMSwxLjIsMy4xLDMuMWMwLDIuMS0xLDMuNy0zLDUuOEw4Ni41LDgxLjdjLTAuMywwLjMtMC40LDAuNS0wLjUsMC44TDg1LjIsODdjLTAuMSwwLjMsMC4yLDAuNSwwLjUsMC41bDE5LjksMA0KCQkJYzAuMywwLDAuNS0wLjIsMC42LTAuNWwwLjktNC44QzEwNy4xLDgxLjksMTA2LjksODEuNywxMDYuNiw4MS43eiIvPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K">
+                                    </div>
+                                    <div id="dos_func_but_4" class="funcbutt2 funcbutthov dos_funcbuttSet"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ticketParWarp">
+                            <div id="dos_ticket_parent" class="ticket_parent empty"
+                                style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                <div class="tickBack"> <img class="ticketBig"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNjI0cHgiIGhlaWdodD0iODE5cHgiIHZpZXdCb3g9IjAgMCAxNjI0IDgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYyNCA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuMztmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MXtkaXNwbGF5Om5vbmU7b3BhY2l0eTowLjY7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDMxNjNEO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDJ7b3BhY2l0eTowLjE1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2MjQsMEgwdjgwNGgxNDU0LjMxYzE0LjgsMCwyNy40LTEwLjYsMzAuMS0yNS4yTDE2MjQsMHoiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDc3OXY3ODFoNjc2LjMxQzE0NzAuMDEsNzgxLDE0ODIuNzEsNzcwLjQsMTQ4NS4zMSw3NTUuOHoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODEwLjQ1IiB5MT0iNTgxIiB4Mj0iODEwLjQ1IiB5Mj0iMTM2MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDAgLTU4MSkiPg0KCTxzdG9wICBvZmZzZXQ9IjAuODc2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDB2NzgxaDE0NTUuMzFDMTQ3MC4wMSw3ODEsMTQ4Mi43MSw3NzAuNCwxNDg1LjMxLDc1NS44eiIvPg0KPC9zdmc+DQo=">
+                                    <div class="tickPuOpenTxt pushText openHide tok_pushOpen small">PULSE PARA ABRIR EL TICKET</div>
+                                    <div class="tickPuCloseTxt pushText openShow tok_pushClose">HAGA CLIC O DESLICE PARA CERRAR EL TICKET</div>
+                                </div>
+                                <div class="ticketOverlay openHide"> <img class="ticketBigOverlay"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4xLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI4NDVweCIgaGVpZ2h0PSI4MTlweCIgdmlld0JveD0iMCAwIDg0NSA4MTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDg0NSA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuNjtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiMwMzE2M0Q7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTcwNi4zMSw3NTUuOEw4NDEuOSwwSDB2NzgxaDY3Ni4zMUM2OTEuMDEsNzgxLDcwMy43MSw3NzAuNCw3MDYuMzEsNzU1Ljh6Ii8+DQo8L3N2Zz4NCg==">
+                                </div>
+                                <div class="ticketSwipe openShow"
+                                    style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                </div>
+                                <div class="ticketCloSum openHide">
+                                    <div class="tickCloTxt cloTxt tok_yourBet">APUESTA</div>
+                                    <div id="dos_tickCloSum" class="tickCloSum sumText"></div> <img class="ticket_off"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjMsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIzODBweCIgaGVpZ2h0PSIxODhweCIgdmlld0JveD0iMCAwIDM4MCAxODgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MCAxODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOnVybCgjU1ZHSURfMV8pO30NCgkuc3Qxe29wYWNpdHk6MC4yODtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfMl8pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KPC9zdHlsZT4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTc0Ljk1IiB5MT0iMCIgeDI9IjE3NC45NSIgeTI9IjQ5Ij4NCgk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojRjRGNTAwO3N0b3Atb3BhY2l0eTowLjk3Ii8+DQoJPHN0b3AgIG9mZnNldD0iMC4wMzAyIiBzdHlsZT0ic3RvcC1jb2xvcjojRTVEMzAwIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0Q2QzUwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMzQ5LjksMCAwLDAgMCw0OSAzNDEuMSw0OSAiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMl8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTY5LjA1IiB5MT0iMTYiIHgyPSIxNjkuMDUiIHkyPSItODUiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgMSAwIDEzNCkiPg0KCTxzdG9wICBvZmZzZXQ9IjAuODIiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDA7c3RvcC1vcGFjaXR5OjAiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTAsNDl2MTAxaDI5NC40YzE0LjgsMCwyNy40LTEwLjYsMzAuMS0yNS4yTDMzOC4xLDQ5SDB6Ii8+DQo8L3N2Zz4NCg==">
+                                </div>
+                                <div class="tickClosLiScroEv openHide"></div>
+                                <div id="dos_tickClosLiWarp" class="tickClosLiWarp openHide" data-simplebar="init"
+                                    style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                    <div class="simplebar-wrapper" style="margin: -4.464px 0px 0px;">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                    aria-label="scrollable content"
+                                                    style="height: 100%; overflow: hidden;">
+                                                    <div class="simplebar-content" style="padding: 4.464px 0px 0px;">
+                                                        <div id="dos_tickClosList" class="tickClosList"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: auto; height: 4px;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                                    </div>
+                                </div>
+                                <div class="tickOpenLiWarpClip openShow"> <svg class="svg">
+                                        <clipPath id="dosTicketClipt" clipPathUnits="objectBoundingBox">
+                                            <path d="M0.916,0.968 L1,0 H0 v1 h0.898 C0.907,1,0.915,0.986,0.916,0.968">
+                                            </path>
+                                        </clipPath>
+                                    </svg>
+                                    <div id="dos_tickOpenHead" class="tickOpenHead openShow"> <span
+                                            id="dos_tickOpenColumns" class="tickOpenColumns"><span
+                                                class="tickHeadColumn tickHeadColumnNr">Nu.</span><span
+                                                class="tickHeadColumn tickHeadColumnStd">Cuotas</span><span
+                                                class="tickHeadColumn tickHeadColumnStd">Monto</span><span
+                                                class="tickHeadColumn tickHeadColumnTi">TICKET</span></span> <span
+                                            id="dos_tickOpenSum" class="tickOpenSum sumText"></span> </div>
+                                    <div id="dos_tickOpenLiWarp" class="tickOpenLiWarp simpBarWarp"
+                                        data-simplebar="init">
+                                        <div class="simplebar-wrapper" style="margin: 0px;">
+                                            <div class="simplebar-height-auto-observer-wrapper">
+                                                <div class="simplebar-height-auto-observer"></div>
+                                            </div>
+                                            <div class="simplebar-mask">
+                                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                        aria-label="scrollable content"
+                                                        style="height: 100%; overflow: hidden;">
+                                                        <div class="simplebar-content" style="padding: 0px;">
+                                                            <div id="dos_tickOpenList" class="tickOpenList"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="simplebar-placeholder" style="width: auto; height: 0px;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="width: 0px; display: none;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="height: 0px; display: none;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dos_coinCont" class="coin_parent">
+                            <div class="coinOverlay"></div>
+                            <div id="coin0" class="coinPos0 coinSing">
+                                <div class="coin0_shadow dos_coinShadow coin"></div>
+                                <div class="coin0 coin stdShadow dos_coin"></div>
+                                <div class="coin0_txt cointxt">25</div>
+                                <div id="dos_coinBut0" class="coin0 dos_coinHover coinButton" data-index="0"></div>
+                            </div>
+                            <div id="coin1" class="coinPos1 coinSing">
+                                <div class="coin0_shadow dos_coinShadow coin"></div>
+                                <div class="coin0 coin stdShadow dos_coin"></div>
+                                <div class="coin0_txt cointxt">50</div>
+                                <div id="dos_coinBut1" class="coin0 dos_coinHover coinButton" data-index="1"></div>
+                            </div>
+                            <div id="coin2" class="coinPos2 coinSing">
+                                <div class="coin0_shadow dos_coinShadow coin"></div>
+                                <div class="coin0 coin stdShadow dos_coin"></div>
+                                <div class="coin0_txt cointxt_s">100</div>
+                                <div id="dos_coinBut2" class="coin0 dos_coinHover coinButton" data-index="2"></div>
+                            </div>
+                            <div id="coin3" class="coinPos3 coinSing">
+                                <div class="coin0_shadow dos_coinShadow coin"></div>
+                                <div class="coin0 coin stdShadow dos_coin"></div>
+                                <div class="coin0_txt cointxt_s">200</div>
+                                <div id="dos_coinBut3" class="coin0 dos_coinHover coinButton" data-index="3"></div>
+                            </div>
+                        </div>
+                        <div id="dos_tpParent" class="actionButtons">
+                            <div id="dos_delTickCont" class="tickCreate">
+                                <div class="stdShadow tp0"> <img class="trash"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMTJweCIgaGVpZ2h0PSIxNDRweCIgdmlld0JveD0iMCAwIDIxMiAxNDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIxMiAxNDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KCS5zdDN7b3BhY2l0eTowLjA5O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDR7b3BhY2l0eTowLjI4O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDV7b3BhY2l0eTowLjE0O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8yXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NntvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzNfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCjwvc3R5bGU+DQo8ZmlsdGVyICBpZD0iYmx1ciI+DQoJPGZlR2F1c3NpYW5CbHVyICBzdGREZXZpYXRpb249IjMiPjwvZmVHYXVzc2lhbkJsdXI+DQo8L2ZpbHRlcj4NCjxnIGNsYXNzPSJzdDAwIj4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xOTcsM0g1MS41Yy0xNC44LDAtMjcuNCwxMC42LTMwLDI1LjNMMywxMjloMTQ1LjVjMTQuOCwwLDI3LjQtMTAuNiwzMC0yNS4zTDE5NywzeiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI5NyIgeTE9IjIyMiIgeDI9Ijk3IiB5Mj0iOTYiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCAyMjIpIj4NCgk8c3RvcCAgb2Zmc2V0PSIzLjk5NTg0MmUtMDciIHN0eWxlPSJzdG9wLWNvbG9yOiNDMjBEMDUiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojOTMwNTAyIi8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTE5NCwwSDQ4LjVjLTE0LjgsMC0yNy40LDEwLjYtMzAsMjUuM0wwLDEyNmgxNDUuNWMxNC44LDAsMjcuNC0xMC42LDMwLTI1LjNMMTk0LDB6Ii8+DQo8ZyBpZD0iWE1MSURfMV8iPg0KCTxwYXRoIGlkPSJYTUxJRF82XyIgY2xhc3M9InN0MiIgZD0iTTExNi43LDM2LjdoLTguNmMwLTIuNC0xLjktNC4zLTQuMi00LjNIOTFjLTIuNCwwLTQuMiwxLjktNC4yLDQuM2gtOC42Yy0yLjQsMC00LjIsMS45LTQuMiw0LjMNCgkJdjQuM2MwLDIuNCwxLjksNC4zLDQuMiw0LjN2MzguN2MwLDIuNCwxLjksNC4zLDQuMiw0LjNoMzBjMi40LDAsNC4yLTEuOSw0LjItNC4zVjQ5LjZjMi40LDAsNC4yLTEuOSw0LjItNC4zdi00LjINCgkJQzEyMSwzOC42LDExOS4xLDM2LjcsMTE2LjcsMzYuN3ogTTExMi41LDg4LjNoLTMwVjQ5LjZoNC4yVjg0aDQuMlY0OS42aDQuMlY4NGg0LjJWNDkuNmg0LjRWODRoNC4yVjQ5LjZoNC41TDExMi41LDg4LjMNCgkJTDExMi41LDg4LjN6IE0xMTYuNyw0NS4zSDc4LjFWNDFoMzguNlY0NS4zeiIvPg0KPC9nPg0KPHBhdGggY2xhc3M9InN0MyIgZD0iTTE5MS42MzMsMEwxNzMuNSw5OC43Yy0yLjYsMTQuNy0xNS4yLDI1LjMtMzAsMjUuM0gwLjM2N0wwLDEyNmgxNDUuNWMxNC44LDAsMjcuNC0xMC42LDMwLTI1LjNMMTk0LDBIMTkxLjYzM3oNCgkiLz4NCjxwYXRoIGNsYXNzPSJzdDQiIGQ9Ik0xOTIuODE2LDBMMTc0LjUsOTkuN2MtMi42LDE0LjctMTUuMiwyNS4zLTMwLDI1LjNIMC4xODRMMCwxMjZoMTQ1LjVjMTQuOCwwLDI3LjQtMTAuNiwzMC0yNS4zTDE5NCwwSDE5Mi44MTZ6DQoJIi8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjM0Ljk1MzIiIHkxPSIxNDUuMDQ2OCIgeDI9IjExNC44MTY1IiB5Mj0iNjUuMTgzNSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE0NikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q1IiBkPSJNMjAuNSwyNy4zQzIzLjEsMTIuNiwzNS43LDIsNTAuNSwyaDE0My4xMzNMMTk0LDBINDguNWMtMTQuOCwwLTI3LjQsMTAuNi0zMCwyNS4zTDAsMTI2aDIuMzY3TDIwLjUsMjcuM3oiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfM18iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMzQuOTUzMiIgeTE9IjE0NS4wNDY4IiB4Mj0iMTE0LjQwOCIgeTI9IjY1LjU5MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE0NikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNDQ0NDQ0MiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTkuNSwyNi4zQzIyLjEsMTEuNiwzNC43LDEsNDkuNSwxaDE0NC4zMTZMMTk0LDBINDguNWMtMTQuOCwwLTI3LjQsMTAuNi0zMCwyNS4zTDAsMTI2aDEuMTg0TDE5LjUsMjYuM3oiLz4NCjwvc3ZnPg0K">
+                                </div>
+                                <div id="dos_delButt" class="trash_action trashHover"></div>
+                            </div>
+                            <div class="tickCreate">
+                                <div id="print0" class="stdShadow"> <img class="print"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4zLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIzMDRweCIgaGVpZ2h0PSIxOTFweCIgdmlld0JveD0iMCAwIDMwNCAxOTEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMwNCAxOTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MDB7ZmlsdGVyOnVybCgjYmx1cik7fQ0KCS5zdDB7b3BhY2l0eTowLjc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KCS5zdDF7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9DQoJLnN0MntvcGFjaXR5OjAuMDU7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0M3tvcGFjaXR5OjAuMjI7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0NHtvcGFjaXR5OjAuMTc7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDp1cmwoI1NWR0lEXzJfKTtlbmFibGUtYmFja2dyb3VuZDpuZXcgICAgO30NCgkuc3Q1e29wYWNpdHk6MC4zMTtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOnVybCgjU1ZHSURfM18pO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KPC9zdHlsZT4NCjxmaWx0ZXIgIGlkPSJibHVyIj4NCgk8ZmVHYXVzc2lhbkJsdXIgIHN0ZERldmlhdGlvbj0iMyI+PC9mZUdhdXNzaWFuQmx1cj4NCjwvZmlsdGVyPg0KPGcgY2xhc3M9InN0MDAiPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTI4OCwzSDU4LjYxQzQzLjg0LDMsMzEuMTksMTMuNiwyOC41NywyOC4xN0wyLDE3NmgyMjkuMzljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4OCwzeiIvPg0KPC9nPg0KPGxpbmVhckdyYWRpZW50IGlkPSJTVkdJRF8xXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIxNDMiIHkxPSIxOTIiIHgyPSIxNDMiIHkyPSIxOSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE5MikiPg0KCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRUVEMDEiLz4NCgk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojQTU5QTA2Ii8+DQo8L2xpbmVhckdyYWRpZW50Pg0KPHBhdGggY2xhc3M9InN0MSIgZD0iTTI4NiwwSDU2LjYxQzQxLjg0LDAsMjkuMTksMTAuNiwyNi41NywyNS4xN0wwLDE3M2gyMjkuMzljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4NiwweiIvPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwOSw2Mi41VjM3LjRjMC0wLjMsMC4yLTAuNSwwLjUtMC41bDAsMGg1MC42YzAuMSwwLDAuMSwwLDAuMiwwLjFsMS43LDAuN2wtMC4yLDAuNGwwLjItMC40DQoJYzAuMSwwLDAuMSwwLjEsMC4yLDAuMWwxMS4zLDExLjFsMC43LDAuN2wtMC4zLDAuM2wwLjMtMC4zYzAuMSwwLjEsMC4xLDAuMiwwLjEsMC4zdjEyLjZjMCwwLjMtMC4yLDAuNS0wLjUsMC41SDE2OQ0KCWMtMC4zLDAtMC41LTAuMi0wLjUtMC41bDAsMHYtNmgtMTNjLTAuMywwLTAuNS0wLjItMC41LTAuNWwwLDBsMCwwdi0yLjRsMCwwVjQyLjdoLTQwLjJ2MTkuOGMwLDAuMy0wLjIsMC41LTAuNSwwLjVsMCwwaC00LjkNCglDMTA5LjIsNjMsMTA5LDYyLjcsMTA5LDYyLjVMMTA5LDYyLjVMMTA5LDYyLjV6IE0xMTUuOCw5NS45aDUzLjRoMC4xYzAuNywwLDEuNCwwLjIsMi4xLDAuNGMwLjcsMC4zLDEuMywwLjcsMS44LDEuMg0KCXMwLjksMS4xLDEuMiwxLjhjMC4zLDAuNiwwLjQsMS4zLDAuNCwydjAuMXY4aDExLjVoMC4xYzAuNSwwLDEtMC4xLDEuNC0wLjNjMC41LTAuMiwwLjktMC41LDEuMy0wLjljMC40LTAuNCwwLjctMC44LDAuOS0xLjMNCglzMC4zLTAuOSwwLjMtMS40di0wLjFWNzQuOHYtMC4xYzAtMC41LTAuMS0xLTAuMy0xLjRjLTAuMi0wLjUtMC41LTAuOS0wLjktMS4zcy0wLjgtMC43LTEuMy0wLjljLTAuNS0wLjItMC45LTAuMy0xLjQtMC4zaC0wLjENCglIOTguNmgtMC4xYy0wLjUsMC0xLDAuMS0xLjQsMC4zYy0wLjUsMC4yLTAuOSwwLjUtMS4zLDAuOXMtMC43LDAuOC0wLjksMS4zYy0wLjIsMC41LTAuMywwLjktMC4zLDEuNHYwLjF2MzAuOHYwLjENCgljMCwwLjUsMC4xLDEsMC4zLDEuNGMwLjIsMC41LDAuNSwwLjksMC45LDEuM3MwLjgsMC43LDEuMywwLjljMC41LDAuMiwwLjksMC4zLDEuNCwwLjNoMC4xaDExLjV2LTh2LTAuMWMwLTAuNywwLjItMS40LDAuNC0yDQoJYzAuMy0wLjcsMC43LTEuMywxLjItMS44YzAsMCwwLDAsMC4xLTAuMWMwLjUtMC41LDEuMi0wLjksMS44LTEuMmMwLjctMC4zLDEuNC0wLjQsMi4xLTAuNEMxMTUuNyw5NS45LDExNS44LDk1LjksMTE1LjgsOTUuOQ0KCUwxMTUuOCw5NS45TDExNS44LDk1Ljl6IE0xNzQuOSwxMTUuNHYxNS4xdjAuMWMwLDAuNy0wLjIsMS40LTAuNCwyYy0wLjMsMC43LTAuNywxLjMtMS4yLDEuOHMtMS4xLDAuOS0xLjgsMS4ycy0xLjMsMC40LTIuMSwwLjQNCgloLTAuMWgtNTMuNGgtMC4xYy0wLjcsMC0xLjQtMC4yLTIuMS0wLjRjLTAuNy0wLjMtMS4zLTAuNy0xLjgtMS4ycy0wLjktMS4xLTEuMi0xLjhjLTAuMy0wLjYtMC40LTEuMy0wLjQtMnYtMC4xdi0xNS4xSDk4LjZoLTAuMQ0KCWMtMS4zLDAtMi41LTAuMy0zLjctMC43Yy0yLjQtMS00LjQtMi45LTUuNC01LjNjLTAuNS0xLjEtMC43LTIuNC0wLjctMy42di0wLjFWNzQuOHYtMC4xYzAtMS4zLDAuMy0yLjUsMC43LTMuNw0KCWMwLjUtMS4yLDEuMi0yLjMsMi4xLTMuMmMwLjktMC45LDItMS42LDMuMi0yLjFzMi40LTAuNywzLjctMC43aDAuMWg4Ny43aDAuMWMxLjMsMCwyLjUsMC4zLDMuNywwLjdjMS4yLDAuNSwyLjMsMS4yLDMuMiwyLjENCglzMS42LDIsMi4xLDMuMmMwLjUsMS4xLDAuNywyLjQsMC43LDMuN3YwLjF2MzAuOHYwLjFjMCwxLjMtMC4zLDIuNS0wLjcsMy42Yy0wLjUsMS4yLTEuMiwyLjMtMi4xLDMuMmMtMC45LDAuOS0yLDEuNi0zLjIsMi4xDQoJcy0yLjQsMC43LTMuNywwLjdoLTAuMWgtMTEuM0wxNzQuOSwxMTUuNEwxNzQuOSwxMTUuNHogTTE2Nyw1MC43bC02LjEtNnY2SDE2N3ogTTE2OSwxMDEuN2gtNTN2MjguNmg1M1YxMDEuN0wxNjksMTAxLjd6Ii8+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMjgzLjY0MSwwTDI1Ny40MywxNDUuODNDMjU0LjgxLDE2MC40LDI0Mi4xNiwxNzEsMjI3LjM5LDE3MUgwLjM1OUwwLDE3M2gyMjkuMzkNCgljMTQuNzcsMCwyNy40Mi0xMC42LDMwLjA0LTI1LjE3TDI4NiwwSDI4My42NDF6Ii8+DQo8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMjg0LjgyLDBsLTI2LjM5LDE0Ni44M0MyNTUuODEsMTYxLjQsMjQzLjE2LDE3MiwyMjguMzksMTcySDAuMThMMCwxNzNoMjI5LjM5YzE0Ljc3LDAsMjcuNDItMTAuNiwzMC4wNC0yNS4xNw0KCUwyODYsMEgyODQuODJ6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzJfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwLjI0MzciIHkxPSIxOTguMjU2MyIgeDI9IjE3Mi4wNzA1IiB5Mj0iNzYuNDI5NSIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAtMSAwIDE5MikiPg0KCTxzdG9wICBvZmZzZXQ9IjkuMDU3MjQyZS0wOCIgc3R5bGU9InN0b3AtY29sb3I6I0ZGRkZGRiIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiNFRUVFRUUiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3Q0IiBkPSJNMjguNTcsMjcuMTdDMzEuMTksMTIuNiw0My44NCwyLDU4LjYxLDJoMjI3LjAzMUwyODYsMEg1Ni42MUM0MS44NCwwLDI5LjE5LDEwLjYsMjYuNTcsMjUuMTdMMCwxNzNoMi4zNTkNCglMMjguNTcsMjcuMTd6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzNfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjUwLjI0MzciIHkxPSIxOTguMjU2MyIgeDI9IjE3MS42NiIgeTI9Ijc2Ljg0IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgMTkyKSI+DQoJPHN0b3AgIG9mZnNldD0iOS4wNTcyNDJlLTA4IiBzdHlsZT0ic3RvcC1jb2xvcjojRkZGRkZGIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6I0NDQ0NDQyIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDUiIGQ9Ik0yNy41NywyNi4xN0MzMC4xOSwxMS42LDQyLjg0LDEsNTcuNjEsMWgyMjguMjFMMjg2LDBINTYuNjFDNDEuODQsMCwyOS4xOSwxMC42LDI2LjU3LDI1LjE3TDAsMTczaDEuMTgNCglMMjcuNTcsMjYuMTd6Ii8+DQo8L3N2Zz4NCg==">
+                                </div>
+                                <div id="dos_printAction" class="print_action printHover">
+                                    <div class="spinner"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gameRunning" id="dos_gameRunning" style="display: none;">
+                            <div class="gameRunningImg anim" style="transition-duration: 0s, 0s; left: 10vw;"></div>
+                            <div class="txtGameRunning tokc_raceIsRunning">... CARRERA ACTIVA ...</div>
+                        </div>
+                        <div id="dos_modalDialog" class="modal notFull modalFadeOut" style="display: none;">
+                            <div class="bgModal" id="dos_acbgModal"> </div>
+                            <div class="modalDialog">
+                                <div class="modBackColor">
+                                    <div id="dos_acmodalHeaderCont" class="modalHeader"> <span
+                                            id="dos_acmodalHeader">¡No más apuestas posibles!</span> <img
+                                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI4MDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgODAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA4MDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNBNTEyMEQ7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik04MDAsMEgyOC44M2MtNy41MiwwLTEzLjk3LDUuMzktMTUuMywxMi44TDAsODhoNzcxLjE3YzcuNTIsMCwxMy45Ny01LjM5LDE1LjMtMTIuOEw4MDAsMHoiLz4NCjwvc3ZnPg0K"
+                                            alt=""> </div>
+                                    <div class="modalText" id="dos_acmodalText" style="text-align: left;">No se pueden
+                                        realizar más apuestas.<br><br>La ronda va a empezar pronto.</div>
+                                    <div class="modalButtonbar" id="dos_acbuttonbar">
+                                        <div class="modalButton modalButtonNeg" id="dos_acmodalNegButton"
+                                            style="display: none;"> <img
+                                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgMjAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNBNTEyMEQ7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMDAsMEgyOC44NGMtNy41MywwLTEzLjk3LDUuMzktMTUuMzEsMTIuOEwwLDg4aDE3MS4xNmM3LjUzLDAsMTMuOTctNS4zOSwxNS4zMS0xMi44TDIwMCwweiIvPg0KPC9zdmc+DQo="
+                                                alt="decline button background"> <span
+                                                id="dos_acmodalNegButtonText"></span> </div>
+                                        <div class="modalButton modalButtonPos" id="dos_acmodalPosButton"
+                                            style="color: black; display: none;"> <img
+                                                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIyMDBweCIgaGVpZ2h0PSI4OHB4IiB2aWV3Qm94PSIwIDAgMjAwIDg4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyMDAgODg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRUVEMDE7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMDAsMEgyOC44NGMtNy41MywwLTEzLjk3LDUuMzktMTUuMzEsMTIuOEwwLDg4aDE3MS4xNmM3LjUzLDAsMTMuOTctNS4zOSwxNS4zMS0xMi44TDIwMCwweiIvPg0KPC9zdmc+DQo="
+                                                alt="accept button background"> <span
+                                                id="dos_acmodalPosButtonText">Ja</span>
+                                            <div class="spinner" style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dos_raceBreakView" class="raceBreakView">
+                            <div><span class="tokc_raceBreakHea"> </span></div>
+                            <div><span class="tokc_raceBreakTxt">PRÓXIMA RONDA</span></div>
+                            <div id="dos_raceBreakStartTi"></div>
+                        </div>
+                    </div>
+                    <div id="dos_resScreen" class="resScreen">
+                        <div class="resParWarp">
+                            <div id="dos_resultParent" class="resultParent">
+                                <div class="resultBack"> <img class="resultBig"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNjI0cHgiIGhlaWdodD0iODE5cHgiIHZpZXdCb3g9IjAgMCAxNjI0IDgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYyNCA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuMztmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MXtkaXNwbGF5Om5vbmU7b3BhY2l0eTowLjY7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDMxNjNEO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDJ7b3BhY2l0eTowLjE1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2MjQsMEgwdjgwNGgxNDU0LjMxYzE0LjgsMCwyNy40LTEwLjYsMzAuMS0yNS4yTDE2MjQsMHoiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDc3OXY3ODFoNjc2LjMxQzE0NzAuMDEsNzgxLDE0ODIuNzEsNzcwLjQsMTQ4NS4zMSw3NTUuOHoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODEwLjQ1IiB5MT0iNTgxIiB4Mj0iODEwLjQ1IiB5Mj0iMTM2MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDAgLTU4MSkiPg0KCTxzdG9wICBvZmZzZXQ9IjAuODc2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDB2NzgxaDE0NTUuMzFDMTQ3MC4wMSw3ODEsMTQ4Mi43MSw3NzAuNCwxNDg1LjMxLDc1NS44eiIvPg0KPC9zdmc+DQo=">
+                                </div>
+                                <div class="resOpenLiWarpClip resultShow"> <svg class="svg">
+                                        <clipPath id="dosResClipt" clipPathUnits="objectBoundingBox">
+                                            <path d="M0.916,0.968 L1,0 H0 v1 h0.898 C0.907,1,0.915,0.986,0.916,0.968">
+                                            </path>
+                                        </clipPath>
+                                    </svg>
+                                    <div id="dos_resOpenHead" class="tabOpenHead resultShow"> <span
+                                            id="dos_resOpenColumns" class="resOpenColumns tabOpenColumns"><span
+                                                class="tabHeadColumn tabHeadColumnRaNr">CARRERAS Nu.</span><span
+                                                class="tabHeadColumn tabHeadColumnTi">RESULTADO</span></span> </div>
+                                    <div id="dos_resOpenLiWarp" class="dosTab resOpenLiWarp simpBarWarp"
+                                        data-simplebar="init">
+                                        <div class="simplebar-wrapper" style="margin: 0px;">
+                                            <div class="simplebar-height-auto-observer-wrapper">
+                                                <div class="simplebar-height-auto-observer"></div>
+                                            </div>
+                                            <div class="simplebar-mask">
+                                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                        aria-label="scrollable content"
+                                                        style="height: 100%; overflow: hidden scroll;">
+                                                        <div class="simplebar-content" style="padding: 0px;">
+                                                            <div id="dos_resOpenList" class="resOpenList">
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0277</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number6"></div>
+                                                                        <div class="beLiNumb dos_number4"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0276</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number4"></div>
+                                                                        <div class="beLiNumb dos_number1"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0275</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                        <div class="beLiNumb dos_number4"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0274</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number1"></div>
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0273</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                        <div class="beLiNumb dos_number6"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0272</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number4"></div>
+                                                                        <div class="beLiNumb dos_number5"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0271</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number5"></div>
+                                                                        <div class="beLiNumb dos_number6"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0270</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number1"></div>
+                                                                        <div class="beLiNumb dos_number5"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0269</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number6"></div>
+                                                                        <div class="beLiNumb dos_number4"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0268</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                        <div class="beLiNumb dos_number2"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0267</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number6"></div>
+                                                                        <div class="beLiNumb dos_number5"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0266</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number1"></div>
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0265</div>
+                                                                    <div class="tabColumn tabHeadColumnTi">
+                                                                        <div class="beLiNumb dos_number5"></div>
+                                                                        <div class="beLiNumb dos_number3"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="simplebar-placeholder" style="width: auto; height: 312px;">
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="width: 0px; display: none;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="height: 258px; display: block; transform: translate3d(0px, 0px, 0px);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dos_priResParent" class="priResParent dosPrintBut">
+                            <div id="dos_resPri1" class="printButt resPri1">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">5</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dos_resPri2" class="printButt resPri2">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">10</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dos_resPri3" class="printButt resPri3">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">20</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dos_quoScreen" class="quoScreen">
+                        <div class="quoParWarp">
+                            <div id="dos_quoParent" class="quoParent">
+                                <div class="quoBack"> <img class="quoBig"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNjI0cHgiIGhlaWdodD0iODE5cHgiIHZpZXdCb3g9IjAgMCAxNjI0IDgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYyNCA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuMztmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MXtkaXNwbGF5Om5vbmU7b3BhY2l0eTowLjY7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDMxNjNEO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDJ7b3BhY2l0eTowLjE1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQo8L3N0eWxlPg0KPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2MjQsMEgwdjgwNGgxNDU0LjMxYzE0LjgsMCwyNy40LTEwLjYsMzAuMS0yNS4yTDE2MjQsMHoiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDc3OXY3ODFoNjc2LjMxQzE0NzAuMDEsNzgxLDE0ODIuNzEsNzcwLjQsMTQ4NS4zMSw3NTUuOHoiLz4NCjxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMV8iIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iODEwLjQ1IiB5MT0iNTgxIiB4Mj0iODEwLjQ1IiB5Mj0iMTM2MiIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxIDAgMCAxIDAgLTU4MSkiPg0KCTxzdG9wICBvZmZzZXQ9IjAuODc2IiBzdHlsZT0ic3RvcC1jb2xvcjojMDAwMDAwIi8+DQoJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPg0KPC9saW5lYXJHcmFkaWVudD4NCjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNDg1LjMxLDc1NS44TDE2MjAuOSwwSDB2NzgxaDE0NTUuMzFDMTQ3MC4wMSw3ODEsMTQ4Mi43MSw3NzAuNCwxNDg1LjMxLDc1NS44eiIvPg0KPC9zdmc+DQo=">
+                                </div>
+                                <div class="quoOpenLiWarpClip quoShow"> <svg class="svg">
+                                        <clipPath id="dosQuoClipt" clipPathUnits="objectBoundingBox">
+                                            <path d="M0.916,0.968 L1,0 H0 v1 h0.898 C0.907,1,0.915,0.986,0.916,0.968">
+                                            </path>
+                                        </clipPath>
+                                    </svg>
+                                    <div id="dos_quoOpenHead" class="tabOpenHead quoShow"> <span id="dos_quoOpenColumns"
+                                            class="quoOpenColumns tabOpenColumns"><span
+                                                class="tabHeadColumn tabHeadColumnRaNr">CARRERAS Nu.</span>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number1"></div>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number2"></div>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number3"></div>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number4"></div>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number5"></div>
+                                            <div class="tabHeadColumn tabHeadNumb dos_number6"></div>
+                                        </span> </div>
+                                    <div id="dos_quoOpenLiWarp" class="dosTab quoOpenLiWarp simpBarWarp"
+                                        data-simplebar="init">
+                                        <div class="simplebar-wrapper" style="margin: 0px;">
+                                            <div class="simplebar-height-auto-observer-wrapper">
+                                                <div class="simplebar-height-auto-observer"></div>
+                                            </div>
+                                            <div class="simplebar-mask">
+                                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                        aria-label="scrollable content"
+                                                        style="height: 100%; overflow: hidden scroll;">
+                                                        <div class="simplebar-content" style="padding: 0px;">
+                                                            <div id="dos_quoOpenList" class="quoOpenList">
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0278</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">2,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,8</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0279</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,6</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0280</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,5</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,7</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0281</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,5</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0282</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,6</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0283</div>
+                                                                    <div class="tabColumn tabColumnQuota">10,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,5</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,2</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0284</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,4</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0285</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,5</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,0</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0286</div>
+                                                                    <div class="tabColumn tabColumnQuota">11,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,1</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0287</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,8</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,3</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0288</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,5</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,4</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0289</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,3</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0290</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,6</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0291</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,2</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0292</div>
+                                                                    <div class="tabColumn tabColumnQuota">10,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,9</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0293</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,3</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0294</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,3</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0295</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">6,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,5</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,4</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0296</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">10,2</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,4</div>
+                                                                    <div class="tabColumn tabColumnQuota">7,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,7</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord odd">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0297</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">11,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,6</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,3</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,5</div>
+                                                                </div>
+                                                                <div class="oneTabRowBord">
+                                                                    <div
+                                                                        class="tabColumn tabHeadColumnRaNr tabRaceNrCe">
+                                                                        0298</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">8,1</div>
+                                                                    <div class="tabColumn tabColumnQuota">9,9</div>
+                                                                    <div class="tabColumn tabColumnQuota">4,7</div>
+                                                                    <div class="tabColumn tabColumnQuota">3,0</div>
+                                                                    <div class="tabColumn tabColumnQuota">5,4</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="simplebar-placeholder" style="width: auto; height: 541px;">
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="width: 0px; display: none;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="height: 149px; display: block; transform: translate3d(0px, 0px, 0px);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dos_priQuoParent" class="priQuoParent dosPrintBut">
+                            <div id="dos_quoPri1" class="printButt quoPri1">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">5</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dos_quoPri2" class="printButt quoPri2">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">10</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dos_quoPri3" class="printButt quoPri3">
+                                <div class="printButtBack printIcoButt stdShadow">
+                                    <div class="printButtTxt printTxtButt">
+                                        <div class="printButtNmb">20</div>
+                                        <div class="printButtAct printTxtButt">
+                                            <div class="spinner"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dos_turnScreen" class="turnScreen">
+                        <div class="turnParWarp">
+                            <div id="dos_turnParent" class="turnParent">
+                                <div class="turnBack"> <img class="turnBig"
+                                        src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNC4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iRWJlbmVfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNjI0cHgiIGhlaWdodD0iODE5cHgiIHZpZXdCb3g9IjAgMCAxNjI0IDgxOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYyNCA4MTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtvcGFjaXR5OjAuMztmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNGRkZGRkY7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0MXtkaXNwbGF5Om5vbmU7b3BhY2l0eTowLjY7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojMDMxNjNEO2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQ0KCS5zdDJ7b3BhY2l0eTowLjE1O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6dXJsKCNTVkdJRF8xXyk7ZW5hYmxlLWJhY2tncm91bmQ6bmV3ICAgIDt9DQoJLnN0M3tmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiNENEMzMDA7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNjI0LDBIMHY4MDRoMTQ1NC4zMWMxNC44LDAsMjcuNC0xMC42LDMwLjEtMjUuMkwxNjI0LDB6Ii8+DQo8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTQ4NS4zMSw3NTUuOEwxNjIwLjksMEg3Nzl2NzgxaDY3Ni4zMUMxNDcwLjAxLDc4MSwxNDgyLjcxLDc3MC40LDE0ODUuMzEsNzU1Ljh6Ii8+DQo8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzFfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjgxMC40NSIgeTE9IjIzOCIgeDI9IjgxMC40NSIgeTI9Ii01NDMiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMSAwIDAgLTEgMCAyMzgpIj4NCgk8c3RvcCAgb2Zmc2V0PSIwLjg3NiIgc3R5bGU9InN0b3AtY29sb3I6IzAwMDAwMCIvPg0KCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDAwMDAiLz4NCjwvbGluZWFyR3JhZGllbnQ+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNMTQ4NS4zMSw3NTUuOEwxNjIwLjksMEgwdjc4MWgxNDU1LjMxQzE0NzAuMDEsNzgxLDE0ODIuNzEsNzcwLjQsMTQ4NS4zMSw3NTUuOHoiLz4NCjxwYXRoIGNsYXNzPSJzdDMiIGQ9Ik0wLDcwNi45N2gxNDk0LjAybC04LjgsNDkuMDljLTIuNDcsMTMuNzItMTMuODksMjMuOS0yNy41OCwyNC45NUgwVjcwNi45N3oiLz4NCjwvc3ZnPg0K">
+                                </div>
+                                <div class="turnOpenLiWarpClip turnShow"> <svg class="svg">
+                                        <clipPath id="dosTurnClipt" clipPathUnits="objectBoundingBox">
+                                            <path d="M0.916,0.968 L1,0 H0 v1 h0.898 C0.907,1,0.915,0.986,0.916,0.968">
+                                            </path>
+                                        </clipPath>
+                                    </svg>
+                                    <div id="dos_turnOpenHead" class="tabOpenHead turnShow"> <span
+                                            id="dos_turnOpenColumns" class="turnOpenColumns tabOpenColumns"><span
+                                                class="tabHeadColumn tabHeadColumnTiNr">Nu.</span><span
+                                                class="tabHeadColumn tabHeadColumnDate">Fecha/Hora</span><span
+                                                class="tabHeadColumn tabHeadColumnTip">Jugadas</span><span
+                                                class="tabHeadColumn tabHeadColumnAmount">Monto</span><span
+                                                class="tabHeadColumn tabHeadColumnAmount">Inversión</span><span
+                                                class="tabHeadColumn tabHeadColumnAmount">Pagar</span><span
+                                                class="tabHeadColumn tabHeadColumnAmount">Balance</span><span
+                                                class="tabHeadColumn tabHeadColumnIcon">Juego</span><span
+                                                class="tabHeadColumn tabHeadColumnStatus">Estado</span></span> </div>
+                                    <div id="dos_turnOpenLiWarp" class="dosTab turnOpenLiWarp simpBarWarp"
+                                        data-simplebar="init">
+                                        <div class="simplebar-wrapper" style="margin: 0px;">
+                                            <div class="simplebar-height-auto-observer-wrapper">
+                                                <div class="simplebar-height-auto-observer"></div>
+                                            </div>
+                                            <div class="simplebar-mask">
+                                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                    <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                        aria-label="scrollable content"
+                                                        style="height: 100%; overflow: hidden;">
+                                                        <div class="simplebar-content" style="padding: 0px;">
+                                                            <div id="dos_turnOpenList" class="turnOpenList"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="simplebar-placeholder" style="width: auto; height: 0px;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="width: 0px; display: none;"></div>
+                                        </div>
+                                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                            <div class="simplebar-scrollbar simplebar-visible"
+                                                style="height: 0px; display: none;"></div>
+                                        </div>
+                                    </div>
+                                    <div id="dos_turnSumRow" class="turnSumRow">
+                                        <div class="turnSuHead"><span class="turnSuHeCo tabHeadColumnTiNr"></span><span
+                                                class="turnSuHeCo tabHeadColumnDate"></span><span
+                                                class="turnSuHeCo tabHeadColumnTip">Jugadas</span><span
+                                                class="turnSuHeCo tabHeadColumnAmount">Monto</span><span
+                                                class="turnSuHeCo tabHeadColumnAmount">Inversión</span><span
+                                                class="turnSuHeCo tabHeadColumnAmount">Pagar</span><span
+                                                class="turnSuHeCo tabHeadColumnAmount">Balance</span></div>
+                                        <div class="turnSuData">
+                                            <div class="turnSum tabHeadColumnTiNr"></div>
+                                            <div class="turnSum tabHeadColumnDate"></div>
+                                            <div class="turnSum tabHeadColumnTip sumColTip"></div>
+                                            <div class="turnSum tabHeadColumnAmount sumColStake"></div>
+                                            <div class="turnSum tabHeadColumnAmount sumColRev"></div>
+                                            <div class="turnSum tabHeadColumnAmount sumColPayout"></div>
+                                            <div class="turnSum tabHeadColumnAmount sumColBalance"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dos_priTurnParent" class="priTurnParent">
+                            <div id="dos_turnBalanceBut" class="turnBalanceBut">
+                                <div class="balanceButtBack balanceIcoButt stdShadow">
+                                    <div class="balanceButtTxt balanceTxtButt"> <span
+                                            class="tok_TurnOver_Balancing">BALANCE</span>
+                                        <div class="balanceButtAct balanceTxtButt"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dos_gameModDialog" class="modal" style="display:none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

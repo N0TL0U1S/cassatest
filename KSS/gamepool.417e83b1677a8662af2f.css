@@ -1,0 +1,748 @@
+:root{
+    --modDialBackColor:#ddd;
+    --modDialTxtColor:#000}
+
+:root,body{
+    --font-regular-all:"DIN Next LT Pro All";
+    --font-regular-italic-all:"DIN Next LT Pro I"}
+
+body[data-lang=cyril]{
+    --font-regular-all:"DIN Next W10 LT Pro All";
+    --font-regular-italic-all:"DIN Next W10 LT Pro All I"}
+    
+div{
+    -webkit-tap-highlight-color:rgba(255,255,255,0)}
+    
+img{
+    -webkit-user-drag:none}
+    
+*{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none}
+    
+.loginForm input{
+    user-select:auto;
+    -webkit-user-select:auto}
+    
+body{font-family:var(--font-regular-all),Helvetica,sans-serif}
+
+.vertAlignCont{
+    align-items:center;
+    display:flex;
+    height:100%;
+    width:100%}
+    
+#gamesWrapper{
+    height:100vh;
+    left:0;
+    overflow:hidden;
+    position:absolute;
+    top:0;
+    width:100vw;
+    z-index:0}
+    
+input:-webkit-autofill,input:-webkit-autofill:active,input:-webkit-autofill:focus,input:-webkit-autofill:hover{
+    transition:background-color 90000s ease-in-out 0s}
+    
+.dsvgBg{
+    background:linear-gradient(0deg,#031d48,#023169 18%,#023169 30%,#03163d 70%);
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+    width:100vw}
+    
+#loaderText {
+    align-items: center;
+    display: flex;
+    font-family: var(--font-regular-italic-all);
+    font-size: 1.8vw;
+    height: 84%;
+    justify-content: center;
+    left: 0;
+    letter-spacing: .55vh;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 100%
+}
+
+.startBottomImg {
+    background-image: url(games/common/assets/loadingscreen/games_img6598856eec74261232ab.png);
+    background-size: 100vw auto;
+    bottom: 6vh;
+    height: auto;
+    position: absolute;
+    width: 100vw
+}
+
+.gamesImgContainer {
+    align-items: flex-end;
+    bottom: 6.9vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw
+}
+
+.sartGamesImg {
+    width: 100vw
+}
+
+.startDsLogo {
+    padding: 1vw 1.3vw 1vw 1vw;
+    width: 9.9vw
+}
+
+#loader-wrapper {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000
+}
+
+#loader {
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    border: .5vw solid transparent;
+    border-radius: 50%;
+    border-top-color: #fff;
+    display: block;
+    height: 32vw;
+    left: 50%;
+    margin: -16vw 0 0 -16vw;
+    position: relative;
+    top: 40%;
+    width: 32vw
+}
+
+#loader:before {
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+    border: .5vw solid transparent;
+    border-radius: 50%;
+    border-top-color: hsla(0, 0%, 100%, .7);
+    bottom: .25vw;
+    content: "";
+    left: .25vw;
+    position: absolute;
+    right: .25vw;
+    top: .25vw
+}
+
+#loader:after {
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+    border: .5vw solid transparent;
+    border-radius: 50%;
+    border-top-color: hsla(0, 0%, 100%, .4);
+    bottom: 1.05vw;
+    content: "";
+    left: 1.05vw;
+    position: absolute;
+    right: 1.05vw;
+    top: 1.05vw
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+:focus {
+    outline: none
+}
+
+body {
+    background-color: #03163d;
+    color: #fff;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+.loginBg,
+body {
+    overflow: hidden
+}
+
+.loginBg {
+    background: linear-gradient(0deg, #031d48, #023169 18%, #023169 30%, #03163d 70%);
+    display: none;
+    height: 100vh;
+    position: fixed;
+    width: 100vw;
+    z-index: 2
+}
+
+.logInVersion {
+    bottom: 2.05vh;
+    color: #fff;
+    font-family: var(--font-regular-italic-all), Helvetica, sans-serif;
+    font-size: 2vh;
+    font-style: italic;
+    left: .5vw;
+    opacity: .3;
+    position: absolute
+}
+
+#downLoadCont {
+    background-color: hsla(0, 0%, 100%, .3);
+    bottom: 4.75vh;
+    height: 2.1vh;
+    left: calc(16.48vw - .3vh);
+    position: absolute;
+    transform: skew(-31deg, 0deg) translateY(2.1vh);
+    visibility: hidden;
+    width: 49.71vw
+}
+
+#downLoadPercente {
+    background-color: #fff;
+    height: 100%;
+    transition-duration: .8s;
+    transition-property: width;
+    width: 0
+}
+
+.logInVersionDownload {
+    bottom: 2.05vh;
+    color: #fff;
+    display: none;
+    font-family: var(--font-regular-italic-all), Helvetica, sans-serif;
+    font-size: 2vh;
+    left: 67.8vw;
+    letter-spacing: .03vw;
+    opacity: 1;
+    position: absolute
+}
+
+@media (max-aspect-ratio:1249/931) {
+
+    .logInVersion,
+    .logInVersionDownload {
+        font-size: 1.6vw
+    }
+}
+
+.dsLogo {
+    display: none;
+    left: 3vw;
+    position: absolute;
+    top: 3vw;
+    transform: translateX(0);
+    width: 22vw
+}
+
+form.loginForm {
+    position: absolute;
+    right: 1.8vw;
+    top: 12vh;
+    z-index: 10
+}
+
+.loginCont {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start
+}
+
+.loginInput {
+    margin-bottom: 1.4vw;
+    width: 29vw
+}
+
+.loginInput:nth-child(2) {
+    transform: translateX(-1.5vw)
+}
+
+.loginInput:nth-child(3) {
+    transform: translateX(-2.6vw)
+}
+
+#password_input {
+    -webkit-text-security: disc !important
+}
+
+.loginInputField {
+    display: inline-block;
+    height: 5.1vw;
+    position: relative
+}
+
+.loginInputField img {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1
+}
+
+.loginInputField .inpBack {
+    background: -webkit-linear-gradient(top, #b4bac5, #c8cbd4 5%, #d2d5dc 9%, #d9dce3 14%, #dbdee3 18%, #d8dbe1 39%, #cccfd8 76%, #cdd0d8);
+    background: linear-gradient(180deg, #b4bac5 0, #c8cbd4 5%, #d2d5dc 9%, #d9dce3 14%, #dbdee3 18%, #d8dbe1 39%, #cccfd8 76%, #cdd0d8);
+    background-image: -moz-linear-gradient(top, #b4bac5 0, #d9dce3 14%, #dbdee3 18%, #cdd0d8 100%);
+    border-bottom-right-radius: 1vh;
+    border-top-left-radius: 1vh;
+    box-shadow: inset 7px 0 15px -7px #8c929d;
+    height: 4.32vw;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: skewX(-10deg);
+    width: 21.3vw;
+    z-index: -1
+}
+
+.loginInputField .loginButtonHov {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 22.3vw auto;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1
+}
+
+.loginInputField .loginButtonHov:hover {
+    background-image: url(games/common/assets/login/butt_login_hov46d34fe42130ad8ff908.svg)
+}
+
+html.can-touch .loginInputField .loginButtonHov:hover {
+    background-image: none
+}
+
+.loginInputField .loginButtonHov:active,
+html.can-touch .loginInputField .loginButtonHov:active {
+    background-image: url(games/common/assets/login/butt_login_act23932c25e077827ba5cb.svg)
+}
+
+.loginInputField input {
+    background: transparent;
+    border: none;
+    font-family: var(--font-regular-italic-all), Helvetica, sans-serif;
+    font-size: 2.5vw;
+    height: 3vw;
+    margin-top: .7vw;
+    padding-left: 1.6vw;
+    user-select: none;
+    width: 19.3vw
+}
+
+.clearButton {
+    display: inline-block;
+    margin-left: 1.3vw;
+    position: relative;
+    top: -.3vw;
+    width: 4vw
+}
+
+.clearButton,
+.loginButton {
+    cursor: pointer
+}
+
+.loginButtonText {
+    color: #fff;
+    display: block;
+    font-family: var(--font-regular-italic-all), Helvetica, sans-serif;
+    font-size: 2.3vw;
+    letter-spacing: .25vw;
+    padding-top: 1vw;
+    text-align: center
+}
+
+.loginInputField.loginButton {
+    width: 22.3vw
+}
+
+.loginError {
+    box-sizing: border-box;
+    height: auto;
+    max-height: 10vw;
+    min-height: 5vw;
+    padding-left: 2vw;
+    padding-right: 1vw;
+    transform: translateX(-9.8vw);
+    transition: all .5s ease
+}
+
+.logInErrBack {
+    background-color: #a8120d;
+    border-bottom-right-radius: 1vh;
+    border-top-left-radius: 1vh;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: skewX(-10deg);
+    width: 100%;
+    z-index: -1;
+}
+
+.loginError span {
+    font-family: var(--font-regular-italic-all), Helvetica, sans-serif;
+    font-size: 1.7vw;
+}
+
+.numPadCont {
+    margin-left: -3.2vw
+}
+
+.numPadIcon {
+    height: 22.36vw;
+    width: 23.4vw
+}
+
+#loginLogut,
+.logInPadEl {
+    cursor: pointer
+}
+
+#loginLogut {
+    background-image: url(games/common/assets/login/exitd8e4dbba7db093a17253.svg);
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    background-size: 2.5vw 2.5vw;
+    height: 3.5vw;
+    margin-left: 5vw;
+    width: 5.6vw
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+.modalFadeIn {
+    animation: fadeIn .3s ease-in
+}
+
+.modalFadeOut {
+    animation: fadeOut .3s ease-in
+}
+
+#modalDialogInfo.highZIndex {
+    z-index: 3001
+}
+
+.modal {
+    animation-fill-mode: forwards;
+    height: 100vh;
+    z-index: 1000
+}
+
+.bgModal,
+.modal {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100vw
+}
+
+.bgModal {
+    background: rgba(0, 0, 0, .774);
+    height: 100%
+}
+
+.modal.notFull {
+    bottom: 0;
+    height: auto;
+    top: 9.51vw
+}
+
+.modalDialog {
+    color: #fff;
+    display: inline-block;
+    font-family: var(--font-regular-all), Helvetica, sans-serif;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    z-index: 4
+}
+
+.modBackColor {
+    background-color: #ddd;
+    border-bottom-right-radius: 1vw;
+    border-top-left-radius: 1vw;
+    height: 100%;
+    overflow: hidden;
+    transform: skew(-10deg);
+    width: 100%
+}
+
+.transparent .modBackColor {
+    background-color: transparent;
+    color: #fff
+}
+
+.modalHeader {
+    border-top-left-radius: 4vw;
+    height: 5.5vw;
+    left: -.6vw;
+    position: relative;
+    top: -.1vw;
+    transform: skewX(10deg);
+    width: 51.16vw
+}
+
+.transparent .modalHeader {
+    background-color: transparent;
+    color: #fff
+}
+
+.modalHeader img {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100.1%;
+    z-index: 1
+}
+
+.modalHeader span {
+    line-height: 5.5vw;
+    padding-left: 2.3vw;
+    transform: skewX(-10deg);
+    z-index: 2
+}
+
+.modalHeader span,
+.modalText {
+    display: block;
+    font-size: 2vw;
+    position: relative
+}
+
+.modalText {
+    box-sizing: border-box;
+    color: var(--modDialTxtColor);
+    max-height: 70vh;
+    overflow: hidden;
+    padding: 2vw;
+    text-align: center;
+    z-index: 1
+}
+
+.transparent .modalText {
+    color: #fff
+}
+
+.modalButtonbar {
+    height: 5.5vw;
+    left: -1%;
+    position: relative;
+    transform: skewX(10deg);
+    width: 100%;
+    width: 102.2%
+}
+
+.modalButton {
+    cursor: pointer;
+    display: inline-block;
+    height: 5.5vw;
+    position: absolute;
+    top: 0;
+    width: 12.5vw
+}
+
+.modalButton span {
+    display: block;
+    font-size: 2vw;
+    font-weight: 700;
+    line-height: 5.5vw;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 2
+}
+
+.modalButton img {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.modalButtonNeg {
+    left: 0
+}
+
+.modalButtonPos {
+    right: 0
+}
+
+.modalButtonbar .modalButton .spinner {
+    height: 4vw;
+    top: 1.03vw;
+    width: 4vw
+}
+
+.dotLoaderAnim {
+    animation: dotLoad 1s steps(7) infinite;
+    aspect-ratio: 12;
+    background: radial-gradient(circle closest-side, #000 90%, #0000) 0/16.66667% 100% space;
+    clip-path: inset(0 100% 0 0);
+    margin: 1.5vh auto 1vh;
+    width: 20vw
+}
+
+@keyframes dotLoad {
+    to {
+        clip-path: inset(0 -17% 0 0)
+    }
+}
+
+#errmodalNumRetry {
+    display: inline-block;
+    transform: scale(1);
+    transition: transform .75s ease
+}
+
+#errmodalNumRetry.newNumb {
+    transform: scale(1.3);
+    transition: none
+}
+
+@media (max-aspect-ratio:11/16) {
+    #modalDialogErr .modalDialog {
+        width: 80vw
+    }
+
+    .modalDialog .modalText {
+        font-size: 5.5vw
+    }
+
+    .modalDialog .modalHeader span {
+        font-size: 5.5vw;
+        line-height: 10vw
+    }
+
+    .modalDialog .modalHeader {
+        height: 8.8vw;
+        left: -1.1vw;
+        top: -.16vw;
+        width: 81.86vw
+    }
+}
+
+@font-face {
+    font-family: DIN Next LT Pro All;
+    font-style: italic;
+    font-weight: 700;
+    src: url(games/common/assets/fonts/din-lt-pro/bold-italic.de4f26e64fd1ebb5effe..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/bold-italic.ec89be876209e17625ea..woff) format("woff")
+}
+
+@font-face {
+    font-family: DIN Next LT Pro All;
+    font-weight: 300;
+    src: url(games/common/assets/fonts/din-lt-pro/light.44fb110c1dbd4a2fcac3..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/light.eac04c28dce293280272..woff) format("woff")
+}
+
+@font-face {
+    font-family: DIN Next LT Pro All;
+    font-weight: 400;
+    src: url(games/common/assets/fonts/din-lt-pro/regular.69f3ccae80def551a6f8..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/regular.0f175fec54220412b139..woff) format("woff")
+}
+
+@font-face {
+    font-family: DIN Next LT Pro All;
+    font-weight: 700;
+    src: url(games/common/assets/fonts/din-lt-pro/bold.d3f88f892a07f8c9fbad..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/bold.8e82503b66e4cbe106d7..woff) format("woff")
+}
+
+@font-face {
+    font-family: DIN Next LT Pro I;
+    font-style: italic;
+    font-weight: 400;
+    src: url(games/common/assets/fonts/din-lt-pro/regular-italic.19d8bf50f1956696ad54..woff) format("woff"), url(games/common/assets/fonts/din-lt-pro/regular-italic.7e77b53a3a53b4e21c0e..woff2) format("woff2")
+}
+
+@font-face {
+    ascent-override: 86%;
+    descent-override: 35%;
+    font-family: DIN Next W10 LT Pro All;
+    font-style: italic;
+    font-weight: 700;
+    src: url(games/common/assets/fonts/din-lt-pro/bold-italic.de4f26e64fd1ebb5effe..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/bold-italic.ec89be876209e17625ea..woff) format("woff")
+}
+
+@font-face {
+    ascent-override: 86%;
+    descent-override: 35%;
+    font-family: DIN Next W10 LT Pro All;
+    font-weight: 300;
+    src: url(games/common/assets/fonts/din-lt-pro/light.44fb110c1dbd4a2fcac3..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/light.eac04c28dce293280272..woff) format("woff")
+}
+
+@font-face {
+    ascent-override: 86%;
+    descent-override: 35%;
+    font-family: DIN Next W10 LT Pro All;
+    font-weight: 400;
+    src: url(games/common/assets/fonts/din-lt-pro/regular.69f3ccae80def551a6f8..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/regular.0f175fec54220412b139..woff) format("woff")
+}
+
+@font-face {
+    ascent-override: 86%;
+    descent-override: 35%;
+    font-family: DIN Next W10 LT Pro All;
+    font-weight: 700;
+    src: url(games/common/assets/fonts/din-lt-pro/bold.d3f88f892a07f8c9fbad..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/bold.8e82503b66e4cbe106d7..woff) format("woff")
+}
+
+@font-face {
+    ascent-override: 86%;
+    descent-override: 35%;
+    font-family: DIN Next W10 LT Pro All I;
+    font-style: italic;
+    font-weight: 400;
+    src: url(games/common/assets/fonts/din-lt-pro/regular-italic.7e77b53a3a53b4e21c0e..woff2) format("woff2"), url(games/common/assets/fonts/din-lt-pro/regular-italic.19d8bf50f1956696ad54..woff) format("woff")
+}
+
+/*  !*font-style: italic;*!*/
